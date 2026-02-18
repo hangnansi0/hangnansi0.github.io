@@ -1,0 +1,2824 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>灵波和鸣 - 封面</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;400;600;700&family=Spectral:wght@300;400;600&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<style type="text/tailwindcss">
+@layer utilities {
+.ppt-slide {
+@apply relative w-[1280px] min-h-[720px] mx-auto box-border
+}
+}
+</style>
+<style>body {
+    font-family: "Noto Serif SC", serif;
+    background: linear-gradient(135deg, #F7F3E6 0%, #F0F4E8 50%, #E8F4F0 100%)
+    }
+.title-font {
+    font-family: "Noto Serif SC", serif
+    }
+.number-font {
+    font-family: "Spectral", serif
+    }
+@keyframes breathe {
+    0%, 100% {
+        opacity: 0.3;
+        transform: scale(1);
+        } 50% {
+        opacity: 0.6;
+        transform: scale(1.05);
+        }
+    }
+@keyframes wave-flow-1 {
+    0% {
+        transform: translateX(-50%) translateY(0px);
+        } 100% {
+        transform: translateX(0%) translateY(0px);
+        }
+    }
+@keyframes wave-flow-2 {
+    0% {
+        transform: translateX(-100%) translateY(0px);
+        } 100% {
+        transform: translateX(-50%) translateY(0px);
+        }
+    }
+@keyframes ripple-expand {
+    0% {
+        transform: scale(1);
+        opacity: 0.6;
+        } 100% {
+        transform: scale(2.5);
+        opacity: 0;
+        }
+    }
+@keyframes pulse-overlay {
+    0%, 100% {
+        opacity: 0.15;
+        transform: scale(1);
+        } 50% {
+        opacity: 0.3;
+        transform: scale(1.1);
+        }
+    }
+.breathe-glow {
+    animation: breathe 5s ease-in-out infinite
+    }
+.wave-flow-1 {
+    animation: wave-flow-1 20s ease-in-out infinite
+    }
+.wave-flow-2 {
+    animation: wave-flow-2 18s ease-in-out infinite
+    }
+.ripple-expand {
+    animation: ripple-expand 4s ease-out infinite
+    }
+.ripple-delay-1 {
+    animation-delay: 0.8s
+    }
+.ripple-delay-2 {
+    animation-delay: 1.6s
+    }
+.ripple-delay-3 {
+    animation-delay: 2.4s
+    }
+.glow-effect {
+    box-shadow: 0 0 40px rgba(255, 159, 67, 0.3), 0 0 80px rgba(255, 159, 67, 0.15)
+    }</style>
+<style>.material-icons {
+    width: 1em
+    }</style><style>.material-icons {
+    direction: rtl
+    }</style></head>
+<body>
+
+<!-- 引导遮罩 -->
+<div id="introOverlay" style="
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #F7F3E6 0%, #F0F4E8 50%, #E8F4F0 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 999999;
+">
+  <div style="text-align: center;">
+    <!-- 中心圆形装饰 -->
+    <div style="width: 180px; height: 180px; margin: 0 auto 35px; border-radius: 50%; 
+      background: radial-gradient(circle, rgba(255, 159, 67, 0.2) 0%, rgba(16, 97, 136, 0.1) 100%);
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 0 80px rgba(255, 159, 67, 0.35), 0 0 120px rgba(255, 159, 67, 0.2);">
+      <span style="font-size: 90px;">🎵</span>
+    </div>
+    
+    <!-- 标题 -->
+    <h1 style="font-size: 64px; color: #106188; margin-bottom: 15px; font-weight: 600; 
+      letter-spacing: 0.08em; font-family: 'Noto Serif SC', serif;">灵波和鸣</h1>
+    
+    <!-- 英文名 -->
+    <p style="font-size: 22px; color: #106188; margin-bottom: 15px; opacity: 0.6; 
+      letter-spacing: 0.15em; font-family: 'Spectral', serif;">Synergaharmonix</p>
+    
+    <!-- 副标题 -->
+    <p style="font-size: 26px; color: #106188; margin-bottom: 55px; opacity: 0.8; 
+      letter-spacing: 0.12em; font-family: 'Noto Serif SC', serif;">灵波轻起——万物和鸣</p>
+    
+    <!-- 开始按钮 -->
+    <button id="startBtn" style="
+      background: linear-gradient(135deg, #FF9F43 0%, #FF7B54 100%);
+      border: none;
+      padding: 22px 70px;
+      border-radius: 45px;
+      font-size: 22px;
+      color: white;
+      cursor: pointer;
+      font-weight: 600;
+      box-shadow: 0 12px 40px rgba(255, 159, 67, 0.45);
+      transition: all 0.3s ease;
+      letter-spacing: 0.08em;
+      font-family: 'Noto Serif SC', serif;
+    " onmouseover="this.style.transform='translateY(-4px)'; this.style.boxShadow='0 18px 55px rgba(255, 159, 67, 0.55)';" 
+       onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 12px 40px rgba(255, 159, 67, 0.45)';">
+      ✨ 点击开始
+    </button>
+    
+    <!-- 底部提示 -->
+    <p style="font-size: 14px; color: #106188; margin-top: 30px; opacity: 0.5; 
+      letter-spacing: 0.05em; font-family: 'Noto Serif SC', serif;">
+      点击开启旅程
+    </p>
+  </div>
+  
+  <!-- 背景装饰圆 -->
+  <div style="position: absolute; top: 10%; left: 10%; width: 250px; height: 250px; 
+    background: radial-gradient(circle, rgba(255, 159, 67, 0.15) 0%, transparent 70%);
+    border-radius: 50%; filter: blur(40px); animation: pulse-overlay 5s ease-in-out infinite;"></div>
+  <div style="position: absolute; bottom: 15%; right: 12%; width: 220px; height: 220px; 
+    background: radial-gradient(circle, rgba(16, 97, 136, 0.12) 0%, transparent 70%);
+    border-radius: 50%; filter: blur(35px); animation: pulse-overlay 5s ease-in-out infinite 2s;"></div>
+</div>
+
+<!-- 主页面内容 -->
+<div class="ppt-slide relative overflow-hidden" style="height: 720px;
+background: linear-gradient(135deg, #F7F3E6 0%, #F0F4E8 40%, #E8F4F0 100%)">
+<div class="absolute inset-0 z-0" style="flex-shrink: 0">
+<div class="absolute breathe-glow" style="top: 10%;
+left: 60%;
+width: 400px;
+height: 400px;
+background: radial-gradient(circle, rgba(255, 159, 67, 0.25) 0%, transparent 70%);
+border-radius: 50%;
+filter: blur(40px)"></div>
+<div class="absolute breathe-glow" style="bottom: 20%;
+right: 10%;
+width: 300px;
+height: 300px;
+background: radial-gradient(circle, rgba(16, 97, 136, 0.2) 0%, transparent 70%);
+border-radius: 50%;
+filter: blur(50px);
+animation-delay: 2s"></div>
+<div class="absolute breathe-glow" style="top: 40%;
+left: 5%;
+width: 250px;
+height: 250px;
+background: radial-gradient(circle, rgba(255, 159, 67, 0.2) 0%, transparent 70%);
+border-radius: 50%;
+filter: blur(45px);
+animation-delay: 3s"></div>
+</div>
+
+<div class="absolute inset-0 z-0 opacity-20">
+<svg class="absolute wave-flow-1" style="top: 15%;
+left: -20%;
+width: 140%;
+height: 200px" viewBox="0 0 1400 200" preserveAspectRatio="none">
+<path d="M0,100 Q350,30 700,100 T1400,100" fill="none" stroke="url(#gradient1)" stroke-width="2"/>
+<defs>
+<linearGradient id="gradient1" x1="0%" y1="0%" x2="100%" y2="0%">
+<stop offset="0%" style="stop-color: #FF9F43;
+stop-opacity: 0"/>
+<stop offset="50%" style="stop-color: #FF9F43;
+stop-opacity: 0.6"/>
+<stop offset="100%" style="stop-color: #FF9F43;
+stop-opacity: 0"/>
+</linearGradient>
+</defs>
+</svg>
+<svg class="absolute wave-flow-2" style="bottom: 25%;
+left: -30%;
+width: 160%;
+height: 180px" viewBox="0 0 1600 180" preserveAspectRatio="none">
+<path d="M0,90 Q400,40 800,90 T1600,90" fill="none" stroke="url(#gradient2)" stroke-width="2"/>
+<defs>
+<linearGradient id="gradient2" x1="0%" y1="0%" x2="100%" y2="0%">
+<stop offset="0%" style="stop-color: #106188;
+stop-opacity: 0"/>
+<stop offset="50%" style="stop-color: #106188;
+stop-opacity: 0.5"/>
+<stop offset="100%" style="stop-color: #106188;
+stop-opacity: 0"/>
+</linearGradient>
+</defs>
+</svg>
+</div>
+
+<div class="relative z-10 h-full flex">
+<div class="w-3/5 flex flex-col justify-center pl-20 pr-12">
+<div class="mb-6">
+<div class="inline-block px-5 py-2 rounded-full glow-effect" style="background: rgba(255, 159, 67, 0.15);
+backdrop-filter: blur(10px)">
+<span class="text-sm font-light tracking-wider" style="color: #106188">音乐疗愈小程序</span>
+</div>
+</div>
+<h1 class="title-font font-bold mb-4" style="font-size: 72px;
+line-height: 1.1;
+color: #106188;
+letter-spacing: 0.02em">
+灵波和鸣
+</h1>
+<h2 class="title-font font-light mb-10" style="font-size: 32px;
+letter-spacing: 0.08em;
+color: #106188;
+opacity: 0.75">
+Synergaharmonix
+</h2>
+<div class="mb-10">
+<p class="title-font font-light mb-4" style="font-size: 26px;
+letter-spacing: 0.12em;
+color: #106188;
+opacity: 0.9">
+灵波轻起，万物和鸣
+</p>
+<p class="text-lg leading-relaxed max-w-xl" style="color: #106188;
+opacity: 0.7">
+灵性之波，彼此和鸣<br/>
+在温柔声波中归于和谐、抚平情绪、唤醒内在宁静
+</p>
+</div>
+<div class="flex gap-6">
+<div class="flex items-center gap-3 px-5 py-3 rounded-2xl" style="background: rgba(255, 159, 67, 0.15);
+backdrop-filter: blur(10px)">
+<i class="material-icons" style="color: #FF9F43;
+font-size: 28px">graphic_eq</i>
+<span class="font-light text-lg" style="color: #106188">同频共振</span>
+</div>
+<div class="flex items-center gap-3 px-5 py-3 rounded-2xl" style="background: rgba(255, 159, 67, 0.15);
+backdrop-filter: blur(10px)">
+<i class="material-icons" style="color: #FF9F43;
+font-size: 28px">spa</i>
+<span class="font-light text-lg" style="color: #106188">身心疗愈</span>
+</div>
+</div>
+</div>
+
+<div class="w-2/5 flex items-center justify-center relative">
+<div class="absolute ripple-expand" style="width: 320px;
+height: 320px;
+border: 3px solid rgba(255, 159, 67, 0.5);
+border-radius: 50%"></div>
+<div class="absolute ripple-expand ripple-delay-1" style="width: 320px;
+height: 320px;
+border: 3px solid rgba(16, 97, 136, 0.4);
+border-radius: 50%"></div>
+<div class="absolute ripple-expand ripple-delay-2" style="width: 320px;
+height: 320px;
+border: 3px solid rgba(255, 159, 67, 0.45);
+border-radius: 50%"></div>
+<div class="absolute ripple-expand ripple-delay-3" style="width: 320px;
+height: 320px;
+border: 3px solid rgba(16, 97, 136, 0.35);
+border-radius: 50%"></div>
+
+<div class="relative w-64 h-64 rounded-full flex items-center justify-center glow-effect" style="background: radial-gradient(circle, rgba(255, 159, 67, 0.2) 0%, rgba(16, 97, 136, 0.1) 100%);
+backdrop-filter: blur(20px)">
+<i class="material-icons" style="font-size: 120px;
+color: #FF9F43;
+opacity: 0.8">graphic_eq</i>
+</div>
+</div>
+</div>
+</div>
+
+<!-- 背景音乐 -->
+<audio id="bgMusic" loop>
+  <source src="疗愈音乐.mp3" type="audio/mpeg">
+</audio>
+
+<!-- 音乐控制按钮 -->
+<div style="position: fixed; top: 20px; right: 20px; z-index: 99998;">
+  <button id="musicBtn" style="
+    background: rgba(255, 159, 67, 0.9); 
+    border: none; 
+    padding: 12px 20px; 
+    border-radius: 25px; 
+    cursor: pointer; 
+    font-size: 14px;
+    color: white;
+    font-weight: 600;
+    box-shadow: 0 4px 15px rgba(255, 159, 67, 0.3);
+    transition: all 0.3s ease;
+    font-family: 'Noto Serif SC', serif;
+  ">
+    🎵 播放音乐
+  </button>
+</div>
+
+<script>
+  const audio = document.getElementById('bgMusic');
+  const btn = document.getElementById('musicBtn');
+  const overlay = document.getElementById('introOverlay');
+  const startBtn = document.getElementById('startBtn');
+  let isPlaying = false;
+  
+  // 设置音量
+  audio.volume = 0.3;
+  
+  // 开始按钮点击 - 隐藏遮罩并播放音乐
+  startBtn.addEventListener('click', function() {
+    // 淡出遮罩
+    overlay.style.opacity = '0';
+    overlay.style.transition = 'opacity 0.8s ease';
+    setTimeout(() => {
+      overlay.style.display = 'none';
+    }, 800);
+    
+    // 播放音乐
+    audio.play().then(() => {
+      isPlaying = true;
+      btn.innerHTML = '🔇 暂停音乐';
+      btn.style.background = 'rgba(16, 97, 136, 0.9)';
+    }).catch(err => {
+      console.log('播放失败:', err);
+    });
+  });
+  
+  // 音乐控制按钮
+  btn.addEventListener('click', function(e) {
+    e.stopPropagation();
+    if (isPlaying) {
+      audio.pause();
+      btn.innerHTML = '🎵 播放音乐';
+      btn.style.background = 'rgba(255, 159, 67, 0.9)';
+    } else {
+      audio.play();
+      btn.innerHTML = '🔇 暂停音乐';
+      btn.style.background = 'rgba(16, 97, 136, 0.9)';
+    }
+    isPlaying = !isPlaying;
+  });
+</script>
+
+</body>
+</html>
+
+
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>产品概述</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;400;600;700&family=Spectral:wght@300;400;600&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<style type="text/tailwindcss">
+@layer utilities {
+.ppt-slide {
+@apply relative w-[1280px] min-h-[720px] mx-auto box-border
+}
+}
+</style>
+<style>body {
+    font-family: "Noto Serif SC", serif;
+    background: linear-gradient(135deg, #F7F3E6 0%, #F0F4E8 50%, #E8F4F0 100%)
+    }
+.title-font {
+    font-family: "Noto Serif SC", serif
+    }
+.number-font {
+    font-family: "Spectral", serif
+    }
+@keyframes breathe {
+    0%, 100% {
+        opacity: 0.3;
+        transform: scale(1);
+        } 50% {
+        opacity: 0.6;
+        transform: scale(1.08);
+        }
+    }
+@keyframes wave-flow {
+    0% {
+        transform: translateX(-30%) translateY(0px);
+        } 100% {
+        transform: translateX(0%) translateY(0px);
+        }
+    }
+@keyframes pulse-glow {
+    0%, 100% {
+        opacity: 0.15;
+        transform: scale(1);
+        } 50% {
+        opacity: 0.35;
+        transform: scale(1.15);
+        }
+    }
+@keyframes float-up {
+    0%, 100% {
+        transform: translateY(0px);
+        } 50% {
+        transform: translateY(-15px);
+        }
+    }
+.breathe-glow {
+    animation: breathe 5s ease-in-out infinite
+    }
+.wave-flow {
+    animation: wave-flow 15s ease-in-out infinite
+    }
+.pulse-glow {
+    animation: pulse-glow 4s ease-in-out infinite
+    }
+.float-up {
+    animation: float-up 4s ease-in-out infinite
+    }
+.glow-effect {
+    box-shadow: 0 0 60px rgba(231, 241, 119, 0.25), 0 0 120px rgba(231, 241, 119, 0.12)
+    }</style>
+<style>.material-icons {
+    width: 1em
+    }</style><style>.material-icons {
+    direction: rtl
+    }</style></head>
+<body>
+<div class="ppt-slide relative overflow-hidden" style="height: 720px;
+background: linear-gradient(135deg, #F7F3E6 0%, #F0F4E8 40%, #E8F4F0 100%)">
+<div class="absolute inset-0 z-0" style="flex-shrink: 0">
+<div class="absolute breathe-glow" style="top: 15%;
+left: 10%;
+width: 350px;
+height: 350px;
+background: radial-gradient(circle, rgba(231, 241, 119, 0.25) 0%, transparent 70%);
+border-radius: 50%;
+filter: blur(50px)"></div>
+<div class="absolute breathe-glow" style="bottom: 15%;
+right: 15%;
+width: 280px;
+height: 280px;
+background: radial-gradient(circle, rgba(16, 97, 136, 0.2) 0%, transparent 70%);
+border-radius: 50%;
+filter: blur(45px);
+animation-delay: 2s"></div>
+<div class="absolute breathe-glow" style="top: 45%;
+right: 5%;
+width: 250px;
+height: 250px;
+background: radial-gradient(circle, rgba(231, 241, 119, 0.2) 0%, transparent 70%);
+border-radius: 50%;
+filter: blur(40px);
+animation-delay: 3.5s"></div>
+</div>
+
+<div class="absolute inset-0 z-0 opacity-15">
+<svg class="absolute wave-flow" style="top: 20%;
+left: -25%;
+width: 150%;
+height: 180px" viewBox="0 0 1500 180" preserveAspectRatio="none">
+<path d="M0,90 Q375,30 750,90 T1500,90" fill="none" stroke="url(#grad1)" stroke-width="2"/>
+<defs>
+<linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="0%">
+<stop offset="0%" style="stop-color: #E7F177;
+stop-opacity: 0"/>
+<stop offset="50%" style="stop-color: #E7F177;
+stop-opacity: 0.7"/>
+<stop offset="100%" style="stop-color: #E7F177;
+stop-opacity: 0"/>
+</linearGradient>
+</defs>
+</svg>
+<svg class="absolute wave-flow" style="bottom: 30%;
+left: -35%;
+width: 170%;
+height: 160px;
+animation-delay: 8s" viewBox="0 0 1700 160" preserveAspectRatio="none">
+<path d="M0,80 Q425,35 850,80 T1700,80" fill="none" stroke="url(#grad2)" stroke-width="2"/>
+<defs>
+<linearGradient id="grad2" x1="0%" y1="0%" x2="100%" y2="0%">
+<stop offset="0%" style="stop-color: #106188;
+stop-opacity: 0"/>
+<stop offset="50%" style="stop-color: #106188;
+stop-opacity: 0.6"/>
+<stop offset="100%" style="stop-color: #106188;
+stop-opacity: 0"/>
+</linearGradient>
+</defs>
+</svg>
+</div>
+
+<div class="relative z-10 h-full flex flex-col px-20 py-16">
+<div class="mb-8">
+<h1 class="title-font font-light mb-3" style="font-size: 44px;
+letter-spacing: 0.08em;
+color: #106188">
+产品概述
+</h1>
+<div class="w-20 h-0.5 rounded-full" style="background: linear-gradient(to right, #E7F177, transparent)"></div>
+</div>
+
+<div class="flex-grow flex gap-8 items-center">
+<div class="w-1/2 flex flex-col justify-center relative">
+<div class="absolute pulse-glow" style="top: -30px;
+right: -20px;
+width: 120px;
+height: 120px;
+border: 2px solid rgba(231, 241, 119, 0.25);
+border-radius: 50%"></div>
+<div class="relative rounded-3xl p-10 glow-effect float-up" style="background: rgba(231, 241, 119, 0.12);
+backdrop-filter: blur(15px)">
+<div class="flex items-center gap-4 mb-6">
+<i class="material-icons" style="color: #E7F177;
+font-size: 48px">graphic_eq</i>
+<h2 class="title-font font-semibold" style="font-size: 36px;
+color: #106188;
+letter-spacing: 0.05em">同频共振</h2>
+</div>
+<p class="text-lg leading-relaxed font-light" style="color: #106188;
+opacity: 0.85">
+身心频率与疗愈音乐完美契合<br/>
+在声波中找到平衡与和谐
+</p>
+</div>
+
+<div class="grid grid-cols-2 gap-4 mt-6">
+<div class="rounded-2xl p-5 relative" style="background: rgba(16, 97, 136, 0.05);
+backdrop-filter: blur(10px)">
+<i class="material-icons mb-3" style="color: #106188;
+font-size: 32px">spa</i>
+<p class="font-medium text-lg mb-1" style="color: #106188">灵性频率疗愈</p>
+<p class="text-sm font-light" style="color: #106188;
+opacity: 0.65">正念冥想融合</p>
+</div>
+<div class="rounded-2xl p-5 relative" style="background: rgba(16, 97, 136, 0.05);
+backdrop-filter: blur(10px)">
+<i class="material-icons mb-3" style="color: #106188;
+font-size: 32px">self_improvement</i>
+<p class="font-medium text-lg mb-1" style="color: #106188">身心平衡伴侣</p>
+<p class="text-sm font-light" style="color: #106188;
+opacity: 0.65">全息沉浸体验</p>
+</div>
+</div>
+</div>
+
+<div class="w-1/2 relative">
+<div class="absolute pulse-glow" style="top: -25px;
+left: -15px;
+width: 100px;
+height: 100px;
+border: 2px solid rgba(16, 97, 136, 0.15);
+border-radius: 50%;
+animation-delay: 1s"></div>
+<div class="rounded-3xl p-8 float-up" style="background: rgba(255, 255, 255, 0.25);
+backdrop-filter: blur(20px);
+animation-delay: 0.5s">
+<p class="text-xl leading-relaxed mb-6 font-light" style="color: #106188;
+opacity: 0.9">
+灵波和鸣是一款将<span class="font-semibold" style="color: #0A5A5A">灵性频率疗愈、正念冥想与前沿人机交互</span>深度融合的智能小程序。
+</p>
+<p class="text-xl leading-relaxed mb-6 font-light" style="color: #106188;
+opacity: 0.9">
+它以<span class="font-semibold" style="color: #0A5A5A">"同频共振"</span>为核心哲学，不仅通过场景与情绪推荐个性化疗愈音乐，更让音乐与<span class="font-semibold" style="color: #0A5A5A">身体、与他人、与内心</span>实时对话。
+</p>
+<p class="text-xl leading-relaxed font-light" style="color: #106188;
+opacity: 0.9">
+从体感振动到社交共鸣，从呼吸成音到实体留声，致力于成为用户<span class="font-semibold" style="color: #0A5A5A">身心平衡的终身伴侣</span>。
+</p>
+</div>
+
+<div class="flex gap-3 mt-6">
+<div class="flex-1 rounded-2xl p-4 text-center" style="background: rgba(231, 241, 119, 0.1);
+backdrop-filter: blur(10px)">
+<i class="material-icons mb-2" style="color: #106188;
+font-size: 28px">graphic_eq</i>
+<p class="text-sm font-medium" style="color: #106188">声波疗愈</p>
+</div>
+<div class="flex-1 rounded-2xl p-4 text-center" style="background: rgba(231, 241, 119, 0.1);
+backdrop-filter: blur(10px)">
+<i class="material-icons mb-2" style="color: #106188;
+font-size: 28px">favorite</i>
+<p class="text-sm font-medium" style="color: #106188">情绪平衡</p>
+</div>
+<div class="flex-1 rounded-2xl p-4 text-center" style="background: rgba(231, 241, 119, 0.1);
+backdrop-filter: blur(10px)">
+<i class="material-icons mb-2" style="color: #106188;
+font-size: 28px">people</i>
+<p class="text-sm font-medium" style="color: #106188">社交共鸣</p>
+</div>
+<div class="flex-1 rounded-2xl p-4 text-center" style="background: rgba(231, 241, 119, 0.1);
+backdrop-filter: blur(10px)">
+<i class="material-icons mb-2" style="color: #106188;
+font-size: 28px">album</i>
+<p class="text-sm font-medium" style="color: #106188">实体留声</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>
+
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>目标用户</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;400;600;700&family=Spectral:wght@300;400;600&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<style type="text/tailwindcss">
+@layer utilities {
+.ppt-slide {
+@apply relative w-[1280px] min-h-[720px] mx-auto box-border
+}
+}
+</style>
+<style>body {
+    font-family: "Noto Serif SC", serif;
+    background: linear-gradient(135deg, #F7F3E6 0%, #F0F4E8 50%, #E8F4F0 100%)
+    }
+.title-font {
+    font-family: "Noto Serif SC", serif
+    }
+.number-font {
+    font-family: "Spectral", serif
+    }
+@keyframes breathe {
+    0%, 100% {
+        opacity: 0.3;
+        transform: scale(1);
+        } 50% {
+        opacity: 0.6;
+        transform: scale(1.08);
+        }
+    }
+@keyframes wave-flow {
+    0% {
+        transform: translateX(-30%) translateY(0px);
+        } 100% {
+        transform: translateX(0%) translateY(0px);
+        }
+    }
+@keyframes float-up {
+    0%, 100% {
+        transform: translateY(0px);
+        } 50% {
+        transform: translateY(-15px);
+        }
+    }
+@keyframes pulse-glow {
+    0%, 100% {
+        opacity: 0.1;
+        transform: scale(1);
+        } 50% {
+        opacity: 0.25;
+        transform: scale(1.1);
+        }
+    }
+.breathe-glow {
+    animation: breathe 5s ease-in-out infinite
+    }
+.wave-flow {
+    animation: wave-flow 15s ease-in-out infinite
+    }
+.float-up {
+    animation: float-up 5s ease-in-out infinite
+    }
+.pulse-glow {
+    animation: pulse-glow 4s ease-in-out infinite
+    }
+.card-hover {
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1)
+    }
+.card-hover:hover {
+    transform: translatey(-8px);
+    box-shadow: 0 20px 60px rgba(255, 159, 67, 0.2)
+    }</style>
+<style>.material-icons {
+    width: 1em
+    }</style><style>.material-icons {
+    direction: rtl
+    }</style></head>
+<body>
+<div class="ppt-slide relative overflow-hidden" style="height: 720px;
+background: linear-gradient(135deg, #F7F3E6 0%, #F0F4E8 40%, #E8F4F0 100%)">
+<div class="absolute inset-0 z-0" style="flex-shrink: 0">
+<div class="absolute breathe-glow" style="top: 10%;
+left: 15%;
+width: 320px;
+height: 320px;
+background: radial-gradient(circle, rgba(255, 159, 67, 0.25) 0%, transparent 70%);
+border-radius: 50%;
+filter: blur(50px)"></div>
+<div class="absolute breathe-glow" style="bottom: 20%;
+right: 20%;
+width: 280px;
+height: 280px;
+background: radial-gradient(circle, rgba(16, 97, 136, 0.2) 0%, transparent 70%);
+border-radius: 50%;
+filter: blur(45px);
+animation-delay: 2s"></div>
+<div class="absolute breathe-glow" style="top: 50%;
+left: 60%;
+width: 300px;
+height: 300px;
+background: radial-gradient(circle, rgba(255, 159, 67, 0.22) 0%, transparent 70%);
+border-radius: 50%;
+filter: blur(48px);
+animation-delay: 3.5s"></div>
+</div>
+
+<div class="absolute inset-0 z-0 opacity-15">
+<svg class="absolute wave-flow" style="top: 25%;
+left: -25%;
+width: 150%;
+height: 180px" viewBox="0 0 1500 180" preserveAspectRatio="none">
+<path d="M0,90 Q375,30 750,90 T1500,90" fill="none" stroke="url(#grad1)" stroke-width="2"/>
+<defs>
+<linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="0%">
+<stop offset="0%" style="stop-color: #FF9F43;
+stop-opacity: 0"/>
+<stop offset="50%" style="stop-color: #FF9F43;
+stop-opacity: 0.7"/>
+<stop offset="100%" style="stop-color: #FF9F43;
+stop-opacity: 0"/>
+</linearGradient>
+</defs>
+</svg>
+<svg class="absolute wave-flow" style="bottom: 28%;
+left: -35%;
+width: 170%;
+height: 160px;
+animation-delay: 8s" viewBox="0 0 1700 160" preserveAspectRatio="none">
+<path d="M0,80 Q425,35 850,80 T1700,80" fill="none" stroke="url(#grad2)" stroke-width="2"/>
+<defs>
+<linearGradient id="grad2" x1="0%" y1="0%" x2="100%" y2="0%">
+<stop offset="0%" style="stop-color: #106188;
+stop-opacity: 0"/>
+<stop offset="50%" style="stop-color: #106188;
+stop-opacity: 0.6"/>
+<stop offset="100%" style="stop-color: #106188;
+stop-opacity: 0"/>
+</linearGradient>
+</defs>
+</svg>
+</div>
+
+<div class="relative z-10 h-full flex flex-col px-20 py-14">
+<div class="mb-8">
+<h1 class="title-font font-light mb-3" style="font-size: 44px;
+letter-spacing: 0.08em;
+color: #106188">
+目标用户
+</h1>
+<div class="w-20 h-0.5 rounded-full" style="background: linear-gradient(to right, #FF9F43, transparent)"></div>
+</div>
+
+<div class="flex-grow flex flex-col justify-center">
+<div class="grid grid-cols-3 gap-5 mb-5">
+<div class="rounded-3xl p-6 card-hover relative float-up" style="background: rgba(255, 159, 67, 0.1);
+backdrop-filter: blur(15px);
+animation-delay: 0s">
+<div class="absolute pulse-glow" style="top: -12px;
+right: -12px;
+width: 80px;
+height: 80px;
+border: 2px solid rgba(255, 159, 67, 0.2);
+border-radius: 50%"></div>
+<div class="w-14 h-14 rounded-2xl flex items-center justify-center mb-4" style="background: rgba(255, 159, 67, 0.2)">
+<i class="material-icons" style="color: #106188;
+font-size: 32px">self_improvement</i>
+</div>
+<h3 class="title-font font-semibold mb-3" style="font-size: 22px;
+color: #106188">冥想初学者与资深修行者</h3>
+<p class="text-sm leading-relaxed font-light" style="color: #106188;
+opacity: 0.75">寻求身心平衡与内在宁静的修行之路</p>
+</div>
+
+<div class="rounded-3xl p-6 card-hover relative float-up" style="background: rgba(16, 97, 136, 0.06);
+backdrop-filter: blur(15px);
+animation-delay: 0.5s">
+<div class="absolute pulse-glow" style="top: -12px;
+right: -12px;
+width: 80px;
+height: 80px;
+border: 2px solid rgba(16, 97, 136, 0.15);
+border-radius: 50%"></div>
+<div class="w-14 h-14 rounded-2xl flex items-center justify-center mb-4" style="background: rgba(16, 97, 136, 0.1)">
+<i class="material-icons" style="color: #106188;
+font-size: 32px">cityscape</i>
+</div>
+<h3 class="title-font font-semibold mb-3" style="font-size: 22px;
+color: #106188">受焦虑、失眠、注意力困扰的都市人群</h3>
+<p class="text-sm leading-relaxed font-light" style="color: #106188;
+opacity: 0.75">快节奏生活中寻找片刻安宁与疗愈</p>
+</div>
+
+<div class="rounded-3xl p-6 card-hover relative float-up" style="background: rgba(255, 159, 67, 0.1);
+backdrop-filter: blur(15px);
+animation-delay: 1s">
+<div class="absolute pulse-glow" style="top: -12px;
+right: -12px;
+width: 80px;
+height: 80px;
+border: 2px solid rgba(255, 159, 67, 0.2);
+border-radius: 50%"></div>
+<div class="w-14 h-14 rounded-2xl flex items-center justify-center mb-4" style="background: rgba(255, 159, 67, 0.2)">
+<i class="material-icons" style="color: #106188;
+font-size: 32px">explore</i>
+</div>
+<h3 class="title-font font-semibold mb-3" style="font-size: 22px;
+color: #106188">声音疗愈与灵性成长探索者</h3>
+<p class="text-sm leading-relaxed font-light" style="color: #106188;
+opacity: 0.75">对频率能量、声音疗愈有深度兴趣</p>
+</div>
+</div>
+
+<div class="grid grid-cols-2 gap-5 max-w-4xl mx-auto">
+<div class="rounded-3xl p-6 card-hover relative float-up" style="background: rgba(16, 97, 136, 0.06);
+backdrop-filter: blur(15px);
+animation-delay: 1.5s">
+<div class="absolute pulse-glow" style="top: -12px;
+right: -12px;
+width: 80px;
+height: 80px;
+border: 2px solid rgba(16, 97, 136, 0.15);
+border-radius: 50%"></div>
+<div class="flex gap-4">
+<div class="w-14 h-14 rounded-2xl flex items-center justify-center flex-shrink-0" style="background: rgba(16, 97, 136, 0.1)">
+<i class="material-icons" style="color: #106188;
+font-size: 32px">devices</i>
+</div>
+<div>
+<h3 class="title-font font-semibold mb-3" style="font-size: 22px;
+color: #106188">科技与身心结合的潮流用户</h3>
+<p class="text-sm leading-relaxed font-light" style="color: #106188;
+opacity: 0.75">追求新奇交互体验，探索身心科技融合</p>
+</div>
+</div>
+</div>
+
+<div class="rounded-3xl p-6 card-hover relative float-up" style="background: rgba(255, 159, 67, 0.1);
+backdrop-filter: blur(15px);
+animation-delay: 2s">
+<div class="absolute pulse-glow" style="top: -12px;
+right: -12px;
+width: 80px;
+height: 80px;
+border: 2px solid rgba(255, 159, 67, 0.2);
+border-radius: 50%"></div>
+<div class="flex gap-4">
+<div class="w-14 h-14 rounded-2xl flex items-center justify-center flex-shrink-0" style="background: rgba(255, 159, 67, 0.2)">
+<i class="material-icons" style="color: #106188;
+font-size: 32px">favorite</i>
+</div>
+<div>
+<h3 class="title-font font-semibold mb-3" style="font-size: 22px;
+color: #106188">希望与他人建立深度连接的情感需求者</h3>
+<p class="text-sm leading-relaxed font-light" style="color: #106188;
+opacity: 0.75">寻找同频共鸣，渴望在疗愈中建立深度情感连接</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>
+
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>核心功能模块（一）</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;400;600;700&family=Spectral:wght@300;400;600&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<style type="text/tailwindcss">
+@layer utilities {
+.ppt-slide {
+@apply relative w-[1280px] min-h-[720px] mx-auto box-border
+}
+}
+</style>
+<style>body {
+    font-family: "Noto Serif SC", serif;
+    background: linear-gradient(135deg, #F7F3E6 0%, #F0F4E8 50%, #E8F4F0 100%)
+    }
+.title-font {
+    font-family: "Noto Serif SC", serif
+    }
+.number-font {
+    font-family: "Spectral", serif
+    }
+@keyframes breathe {
+    0%, 100% {
+        opacity: 0.3;
+        transform: scale(1);
+        } 50% {
+        opacity: 0.6;
+        transform: scale(1.08);
+        }
+    }
+@keyframes wave-flow {
+    0% {
+        transform: translateX(-30%) translateY(0px);
+        } 100% {
+        transform: translateX(0%) translateY(0px);
+        }
+    }
+@keyframes float-up {
+    0%, 100% {
+        transform: translateY(0px);
+        } 50% {
+        transform: translateY(-12px);
+        }
+    }
+@keyframes pulse-glow {
+    0%, 100% {
+        opacity: 0.1;
+        transform: scale(1);
+        } 50% {
+        opacity: 0.25;
+        transform: scale(1.1);
+        }
+    }
+.breathe-glow {
+    animation: breathe 5s ease-in-out infinite
+    }
+.wave-flow {
+    animation: wave-flow 15s ease-in-out infinite
+    }
+.float-up {
+    animation: float-up 5s ease-in-out infinite
+    }
+.pulse-glow {
+    animation: pulse-glow 4s ease-in-out infinite
+    }
+.glow-box {
+    box-shadow: 0 0 60px rgba(255, 159, 67, 0.15), 0 0 100px rgba(16, 97, 136, 0.08)
+    }</style>
+<style>.material-icons {
+    width: 1em
+    }</style><style>.material-icons {
+    direction: rtl
+    }</style></head>
+<body>
+<div class="ppt-slide relative overflow-hidden" style="height: 720px;
+background: linear-gradient(135deg, #F7F3E6 0%, #F0F4E8 40%, #E8F4F0 100%)">
+<div class="absolute inset-0 z-0" style="flex-shrink: 0">
+<div class="absolute breathe-glow" style="top: 15%;
+left: 20%;
+width: 350px;
+height: 350px;
+background: radial-gradient(circle, rgba(255, 159, 67, 0.25) 0%, transparent 70%);
+border-radius: 50%;
+filter: blur(50px)"></div>
+<div class="absolute breathe-glow" style="bottom: 20%;
+right: 15%;
+width: 280px;
+height: 280px;
+background: radial-gradient(circle, rgba(16, 97, 136, 0.2) 0%, transparent 70%);
+border-radius: 50%;
+filter: blur(45px);
+animation-delay: 2s"></div>
+<div class="absolute breathe-glow" style="top: 50%;
+left: 55%;
+width: 300px;
+height: 300px;
+background: radial-gradient(circle, rgba(255, 159, 67, 0.22) 0%, transparent 70%);
+border-radius: 50%;
+filter: blur(48px);
+animation-delay: 3.5s"></div>
+</div>
+
+<div class="absolute inset-0 z-0 opacity-12">
+<svg class="absolute wave-flow" style="top: 30%;
+left: -30%;
+width: 160%;
+height: 180px" viewBox="0 0 1600 180" preserveAspectRatio="none">
+<path d="M0,90 Q400,30 800,90 T1600,90" fill="none" stroke="url(#grad1)" stroke-width="2"/>
+<defs>
+<linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="0%">
+<stop offset="0%" style="stop-color: #FF9F43;
+stop-opacity: 0"/>
+<stop offset="50%" style="stop-color: #FF9F43;
+stop-opacity: 0.6"/>
+<stop offset="100%" style="stop-color: #FF9F43;
+stop-opacity: 0"/>
+</linearGradient>
+</defs>
+</svg>
+<svg class="absolute wave-flow" style="bottom: 35%;
+left: -40%;
+width: 180%;
+height: 160px;
+animation-delay: 8s" viewBox="0 0 1800 160" preserveAspectRatio="none">
+<path d="M0,80 Q450,35 900,80 T1800,80" fill="none" stroke="url(#grad2)" stroke-width="2"/>
+<defs>
+<linearGradient id="grad2" x1="0%" y1="0%" x2="100%" y2="0%">
+<stop offset="0%" style="stop-color: #106188;
+stop-opacity: 0"/>
+<stop offset="50%" style="stop-color: #106188;
+stop-opacity: 0.5"/>
+<stop offset="100%" style="stop-color: #106188;
+stop-opacity: 0"/>
+</linearGradient>
+</defs>
+</svg>
+</div>
+
+<div class="relative z-10 h-full flex flex-col px-20 py-14">
+<div class="mb-6">
+<h1 class="title-font font-light mb-3" style="font-size: 44px;
+letter-spacing: 0.08em;
+color: #106188">
+核心功能模块（一）
+</h1>
+<div class="w-20 h-0.5 rounded-full" style="background: linear-gradient(to right, #FF9F43, transparent)"></div>
+</div>
+
+<div class="flex-grow flex gap-8 items-center">
+<div class="w-1/2 relative">
+<div class="absolute pulse-glow" style="top: -25px;
+right: -20px;
+width: 120px;
+height: 120px;
+border: 2px solid rgba(255, 159, 67, 0.2);
+border-radius: 50%"></div>
+<div class="absolute pulse-glow" style="bottom: -30px;
+left: -15px;
+width: 100px;
+height: 100px;
+border: 2px solid rgba(16, 97, 136, 0.15);
+border-radius: 50%;
+animation-delay: 2s"></div>
+<div class="rounded-3xl p-8 glow-box float-up" style="background: rgba(255, 159, 67, 0.12);
+backdrop-filter: blur(20px)">
+<div class="flex items-center gap-3 mb-6">
+<i class="material-icons" style="color: #FF9F43;
+font-size: 36px">tune</i>
+<h2 class="title-font font-semibold" style="font-size: 32px;
+color: #106188;
+letter-spacing: 0.05em">场景化智能推荐</h2>
+</div>
+
+<div class="space-y-5">
+<div>
+<p class="font-medium text-lg mb-3 flex items-center gap-2" style="color: #106188">
+<i class="material-icons" style="font-size: 20px;
+color: #FF9F43">location_on</i>
+场景选择
+</p>
+<div class="flex flex-wrap gap-2">
+<span class="px-4 py-2 rounded-full text-sm font-light" style="background: rgba(16, 97, 136, 0.08);
+color: #106188">午休</span>
+<span class="px-4 py-2 rounded-full text-sm font-light" style="background: rgba(16, 97, 136, 0.08);
+color: #106188">睡前</span>
+<span class="px-4 py-2 rounded-full text-sm font-light" style="background: rgba(16, 97, 136, 0.08);
+color: #106188">打坐</span>
+<span class="px-4 py-2 rounded-full text-sm font-light" style="background: rgba(16, 97, 136, 0.08);
+color: #106188">通勤</span>
+<span class="px-4 py-2 rounded-full text-sm font-light" style="background: rgba(16, 97, 136, 0.08);
+color: #106188">工作</span>
+<span class="px-4 py-2 rounded-full text-sm font-light" style="background: rgba(16, 97, 136, 0.08);
+color: #106188">社交</span>
+</div>
+</div>
+
+<div>
+<p class="font-medium text-lg mb-3 flex items-center gap-2" style="color: #106188">
+<i class="material-icons" style="font-size: 20px;
+color: #FF9F43">mood</i>
+情绪标签
+</p>
+<div class="flex flex-wrap gap-2">
+<span class="px-4 py-2 rounded-full text-sm font-light" style="background: rgba(16, 97, 136, 0.08);
+color: #106188">缓解焦虑</span>
+<span class="px-4 py-2 rounded-full text-sm font-light" style="background: rgba(16, 97, 136, 0.08);
+color: #106188">提升专注</span>
+<span class="px-4 py-2 rounded-full text-sm font-light" style="background: rgba(16, 97, 136, 0.08);
+color: #106188">释放压力</span>
+<span class="px-4 py-2 rounded-full text-sm font-light" style="background: rgba(16, 97, 136, 0.08);
+color: #106188">提振能量</span>
+<span class="px-4 py-2 rounded-full text-sm font-light" style="background: rgba(16, 97, 136, 0.08);
+color: #106188">渴望连接</span>
+</div>
+</div>
+
+<div class="pt-4 space-y-3">
+<div class="flex items-start gap-3 p-3 rounded-2xl" style="background: rgba(255, 255, 255, 0.2)">
+<i class="material-icons flex-shrink-0" style="color: #106188;
+font-size: 24px">queue_music</i>
+<div>
+<p class="font-medium" style="font-size: 18px;
+color: #106188">智能歌单</p>
+<p class="text-sm font-light" style="color: #106188;
+opacity: 0.7">基于场景+情绪双维度，生成精准疗愈歌单</p>
+</div>
+</div>
+<div class="flex items-start gap-3 p-3 rounded-2xl" style="background: rgba(255, 255, 255, 0.2)">
+<i class="material-icons flex-shrink-0" style="color: #106188;
+font-size: 24px">wb_sunny</i>
+<div>
+<p class="font-medium" style="font-size: 18px;
+color: #106188">今日能量推送</p>
+<p class="text-sm font-light" style="color: #106188;
+opacity: 0.7">生命数字算法计算每日能量指数，推送匹配音乐</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="w-1/2 relative">
+<div class="absolute pulse-glow" style="top: -25px;
+left: -20px;
+width: 120px;
+height: 120px;
+border: 2px solid rgba(16, 97, 136, 0.15);
+border-radius: 50%;
+animation-delay: 1s"></div>
+<div class="rounded-3xl p-8 glow-box float-up" style="background: rgba(16, 97, 136, 0.08);
+backdrop-filter: blur(20px);
+animation-delay: 0.5s">
+<div class="flex items-center gap-3 mb-6">
+<i class="material-icons" style="color: #FF9F43;
+font-size: 36px">graphic_eq</i>
+<h2 class="title-font font-semibold" style="font-size: 32px;
+color: #106188;
+letter-spacing: 0.05em">频率疗愈中心</h2>
+</div>
+
+<div class="space-y-4">
+<div class="p-4 rounded-2xl" style="background: rgba(255, 159, 67, 0.15);
+border-left: 3px solid #FF9F43">
+<div class="flex items-center gap-2 mb-2">
+<i class="material-icons" style="color: #106188;
+font-size: 24px">library_music</i>
+<h3 class="font-semibold" style="font-size: 20px;
+color: #106188">索尔菲吉频率库</h3>
+</div>
+<p class="text-base font-light" style="color: #106188;
+opacity: 0.75">全系列单频音轨，附带功效说明与脉轮对应</p>
+</div>
+
+<div class="p-4 rounded-2xl" style="background: rgba(255, 159, 67, 0.15);
+border-left: 3px solid #FF9F43">
+<div class="flex items-center gap-2 mb-2">
+<i class="material-icons" style="color: #106188;
+font-size: 24px">equalizer</i>
+<h3 class="font-semibold" style="font-size: 20px;
+color: #106188">双耳节拍生成器</h3>
+</div>
+<p class="text-base font-light" style="color: #106188;
+opacity: 0.75">自定义脑波状态（δ/θ/α/β），实时合成</p>
+</div>
+
+<div class="p-4 rounded-2xl" style="background: rgba(255, 159, 67, 0.15);
+border-left: 3px solid #FF9F43">
+<div class="flex items-center gap-2 mb-2">
+<i class="material-icons" style="color: #106188;
+font-size: 24px">tune</i>
+<h3 class="font-semibold" style="font-size: 20px;
+color: #106188">432Hz万能转换器</h3>
+</div>
+<p class="text-base font-light" style="color: #106188;
+opacity: 0.75">一键转换为432Hz或任意索尔菲吉频率</p>
+</div>
+
+<div class="p-4 rounded-2xl" style="background: rgba(255, 159, 67, 0.15);
+border-left: 3px solid #FF9F43">
+<div class="flex items-center gap-2 mb-2">
+<i class="material-icons" style="color: #106188;
+font-size: 24px">radar</i>
+<h3 class="font-semibold" style="font-size: 20px;
+color: #106188">脉轮频率分析仪</h3>
+</div>
+<p class="text-base font-light" style="color: #106188;
+opacity: 0.75">实时检测音乐频率，映射七大脉轮活跃度</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>
+
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>核心功能模块（二）</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;400;600;700&family=Spectral:wght@300;400;600&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<style type="text/tailwindcss">
+@layer utilities {
+.ppt-slide {
+@apply relative w-[1280px] min-h-[720px] mx-auto box-border
+}
+}
+</style>
+<style>body {
+    font-family: "Noto Serif SC", serif;
+    background: linear-gradient(135deg, #F7F3E6 0%, #F0F4E8 50%, #E8F4F0 100%)
+    }
+.title-font {
+    font-family: "Noto Serif SC", serif
+    }
+.number-font {
+    font-family: "Spectral", serif
+    }
+@keyframes breathe {
+    0%, 100% {
+        opacity: 0.3;
+        transform: scale(1);
+        } 50% {
+        opacity: 0.6;
+        transform: scale(1.08);
+        }
+    }
+@keyframes wave-flow {
+    0% {
+        transform: translateX(-30%) translateY(0px);
+        } 100% {
+        transform: translateX(0%) translateY(0px);
+        }
+    }
+@keyframes float-up {
+    0%, 100% {
+        transform: translateY(0px);
+        } 50% {
+        transform: translateY(-12px);
+        }
+    }
+@keyframes pulse-glow {
+    0%, 100% {
+        opacity: 0.1;
+        transform: scale(1);
+        } 50% {
+        opacity: 0.25;
+        transform: scale(1.1);
+        }
+    }
+@keyframes rotate-slow {
+    0% {
+        transform: rotate(0deg);
+        } 100% {
+        transform: rotate(360deg);
+        }
+    }
+.breathe-glow {
+    animation: breathe 5s ease-in-out infinite
+    }
+.wave-flow {
+    animation: wave-flow 15s ease-in-out infinite
+    }
+.float-up {
+    animation: float-up 5s ease-in-out infinite
+    }
+.pulse-glow {
+    animation: pulse-glow 4s ease-in-out infinite
+    }
+.rotate-slow {
+    animation: rotate-slow 30s linear infinite
+    }
+.glow-box {
+    box-shadow: 0 0 60px rgba(255, 159, 67, 0.15), 0 0 100px rgba(16, 97, 136, 0.08)
+    }</style>
+<style>.material-icons {
+    width: 1em
+    }</style><style>.material-icons {
+    direction: rtl
+    }</style></head>
+<body>
+<div class="ppt-slide relative overflow-hidden" style="height: 720px;
+background: linear-gradient(135deg, #F7F3E6 0%, #F0F4E8 40%, #E8F4F0 100%)">
+<div class="absolute inset-0 z-0" style="flex-shrink: 0">
+<div class="absolute breathe-glow" style="top: 20%;
+left: 25%;
+width: 300px;
+height: 300px;
+background: radial-gradient(circle, rgba(255, 159, 67, 0.25) 0%, transparent 70%);
+border-radius: 50%;
+filter: blur(50px)"></div>
+<div class="absolute breathe-glow" style="bottom: 25%;
+right: 20%;
+width: 280px;
+height: 280px;
+background: radial-gradient(circle, rgba(16, 97, 136, 0.2) 0%, transparent 70%);
+border-radius: 50%;
+filter: blur(45px);
+animation-delay: 2s"></div>
+<div class="absolute breathe-glow" style="top: 50%;
+left: 50%;
+width: 350px;
+height: 350px;
+background: radial-gradient(circle, rgba(255, 159, 67, 0.22) 0%, transparent 70%);
+border-radius: 50%;
+filter: blur(48px);
+animation-delay: 3.5s"></div>
+</div>
+
+<div class="absolute inset-0 z-0 opacity-12">
+<svg class="absolute wave-flow" style="top: 15%;
+left: -30%;
+width: 160%;
+height: 180px" viewBox="0 0 1600 180" preserveAspectRatio="none">
+<path d="M0,90 Q400,30 800,90 T1600,90" fill="none" stroke="url(#grad1)" stroke-width="2"/>
+<defs>
+<linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="0%">
+<stop offset="0%" style="stop-color: #FF9F43;
+stop-opacity: 0"/>
+<stop offset="50%" style="stop-color: #FF9F43;
+stop-opacity: 0.6"/>
+<stop offset="100%" style="stop-color: #FF9F43;
+stop-opacity: 0"/>
+</linearGradient>
+</defs>
+</svg>
+<svg class="absolute wave-flow" style="bottom: 32%;
+left: -40%;
+width: 180%;
+height: 160px;
+animation-delay: 8s" viewBox="0 0 1800 160" preserveAspectRatio="none">
+<path d="M0,80 Q450,35 900,80 T1800,80" fill="none" stroke="url(#grad2)" stroke-width="2"/>
+<defs>
+<linearGradient id="grad2" x1="0%" y1="0%" x2="100%" y2="0%">
+<stop offset="0%" style="stop-color: #106188;
+stop-opacity: 0"/>
+<stop offset="50%" style="stop-color: #106188;
+stop-opacity: 0.5"/>
+<stop offset="100%" style="stop-color: #106188;
+stop-opacity: 0"/>
+</linearGradient>
+</defs>
+</svg>
+</div>
+
+<div class="relative z-10 h-full flex flex-col px-20 py-14">
+<div class="mb-6">
+<h1 class="title-font font-light mb-3" style="font-size: 44px;
+letter-spacing: 0.08em;
+color: #106188">
+核心功能模块（二）
+</h1>
+<div class="w-20 h-0.5 rounded-full" style="background: linear-gradient(to right, #FF9F43, transparent)"></div>
+</div>
+
+<div class="flex-grow flex gap-8 items-center">
+<div class="w-1/2 relative">
+<div class="absolute pulse-glow" style="top: -25px;
+right: -20px;
+width: 120px;
+height: 120px;
+border: 2px solid rgba(255, 159, 67, 0.2);
+border-radius: 50%"></div>
+<div class="absolute pulse-glow" style="bottom: -30px;
+left: -15px;
+width: 100px;
+height: 100px;
+border: 2px solid rgba(16, 97, 136, 0.15);
+border-radius: 50%;
+animation-delay: 2s"></div>
+
+<div class="rounded-3xl p-8 glow-box float-up" style="background: rgba(255, 159, 67, 0.12);
+backdrop-filter: blur(20px)">
+<div class="flex items-center gap-3 mb-6">
+<i class="material-icons" style="color: #FF9F43;
+font-size: 36px">self_improvement</i>
+<h2 class="title-font font-semibold" style="font-size: 32px;
+color: #106188;
+letter-spacing: 0.05em">身心反馈·实时交互</h2>
+</div>
+
+<div class="space-y-5">
+<div class="p-5 rounded-2xl" style="background: rgba(255, 255, 255, 0.25);
+border-left: 3px solid #FF9F43">
+<div class="flex items-center gap-2 mb-3">
+<i class="material-icons" style="color: #106188;
+font-size: 28px">mic</i>
+<h3 class="font-semibold" style="font-size: 22px;
+color: #106188">呼吸成音</h3>
+</div>
+<p class="text-base font-light mb-3" style="color: #106188;
+opacity: 0.85">实时采集呼吸节奏与深度，转化为疗愈音乐</p>
+<div class="flex items-center gap-2 text-sm font-light" style="color: #106188;
+opacity: 0.7">
+<i class="material-icons" style="font-size: 16px">check_circle</i>
+<span>呼吸深长则音乐舒缓，短促则引导平缓</span>
+</div>
+</div>
+
+<div class="p-5 rounded-2xl" style="background: rgba(255, 255, 255, 0.25);
+border-left: 3px solid #FF9F43">
+<div class="flex items-center gap-2 mb-3">
+<i class="material-icons" style="color: #106188;
+font-size: 28px">sensors</i>
+<h3 class="font-semibold" style="font-size: 22px;
+color: #106188">体感硬件联动</h3>
+</div>
+<p class="text-base font-light mb-3" style="color: #106188;
+opacity: 0.85">连接智能冥想垫、触感音乐披肩等蓝牙硬件</p>
+<div class="flex items-center gap-2 text-sm font-light" style="color: #106188;
+opacity: 0.7">
+<i class="material-icons" style="font-size: 16px">check_circle</i>
+<span>硬件随音频频率产生微妙物理振动</span>
+</div>
+<div class="flex items-center gap-2 text-sm font-light" style="color: #106188;
+opacity: 0.7">
+<i class="material-icons" style="font-size: 16px">check_circle</i>
+<span>将听觉转化为触觉沉浸体验</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="w-1/2 relative">
+<div class="absolute pulse-glow" style="top: -25px;
+left: -20px;
+width: 120px;
+height: 120px;
+border: 2px solid rgba(16, 97, 136, 0.15);
+border-radius: 50%;
+animation-delay: 1s"></div>
+
+<div class="rounded-3xl p-8 glow-box float-up" style="background: rgba(16, 97, 136, 0.08);
+backdrop-filter: blur(20px);
+animation-delay: 0.5s">
+<div class="flex items-center gap-3 mb-6">
+<i class="material-icons" style="color: #FF9F43;
+font-size: 36px">groups</i>
+<h2 class="title-font font-semibold" style="font-size: 32px;
+color: #106188;
+letter-spacing: 0.05em">同频共振·社交连接</h2>
+</div>
+
+<div class="space-y-4">
+<div class="p-4 rounded-2xl" style="background: rgba(255, 159, 67, 0.15);
+border-left: 3px solid #FF9F43">
+<div class="flex items-center gap-2 mb-2">
+<i class="material-icons" style="color: #106188;
+font-size: 24px">connect_without_contact</i>
+<h3 class="font-semibold" style="font-size: 20px;
+color: #106188">双人/多人远程冥想</h3>
+</div>
+<p class="text-base font-light mb-2" style="color: #106188;
+opacity: 0.85">邀请好友或匹配陌生人，进入同一冥想空间</p>
+<div class="flex items-center gap-2 text-sm font-light" style="color: #106188;
+opacity: 0.7">
+<i class="material-icons" style="font-size: 16px">check_circle</i>
+<span>数据转化为环境音效，体验情绪同步</span>
+</div>
+</div>
+
+<div class="p-4 rounded-2xl" style="background: rgba(255, 159, 67, 0.15);
+border-left: 3px solid #FF9F43">
+<div class="flex items-center gap-2 mb-2">
+<i class="material-icons" style="color: #106188;
+font-size: 24px">favorite</i>
+<h3 class="font-semibold" style="font-size: 20px;
+color: #106188">音愈匹配</h3>
+</div>
+<p class="text-base font-light mb-2" style="color: #106188;
+opacity: 0.85">每日推荐一位"今日音愈伙伴"</p>
+<div class="flex items-center gap-2 text-sm font-light" style="color: #106188;
+opacity: 0.7">
+<i class="material-icons" style="font-size: 16px">check_circle</i>
+<span>匿名共听音乐，交换声音疗愈片段</span>
+</div>
+</div>
+
+<div class="p-4 rounded-2xl" style="background: rgba(255, 159, 67, 0.15);
+border-left: 3px solid #FF9F43">
+<div class="flex items-center gap-2 mb-2">
+<i class="material-icons" style="color: #106188;
+font-size: 24px">emoji_events</i>
+<h3 class="font-semibold" style="font-size: 20px;
+color: #106188">共时性冥想挑战</h3>
+</div>
+<p class="text-base font-light" style="color: #106188;
+opacity: 0.85">每周发起社群共修主题，累积集体冥想时长，解锁奖励</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>
+
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>核心功能模块（三）</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;400;600;700&family=Spectral:wght@300;400;600&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<style type="text/tailwindcss">
+@layer utilities {
+.ppt-slide {
+@apply relative w-[1280px] min-h-[720px] mx-auto box-border
+}
+}
+</style>
+<style>body {
+    font-family: "Noto Serif SC", serif;
+    background: linear-gradient(135deg, #F7F3E6 0%, #F0F4E8 50%, #E8F4F0 100%)
+    }
+.title-font {
+    font-family: "Noto Serif SC", serif
+    }
+.number-font {
+    font-family: "Spectral", serif
+    }
+@keyframes breathe {
+    0%, 100% {
+        opacity: 0.3;
+        transform: scale(1);
+        } 50% {
+        opacity: 0.6;
+        transform: scale(1.08);
+        }
+    }
+@keyframes wave-flow {
+    0% {
+        transform: translateX(-30%) translateY(0px);
+        } 100% {
+        transform: translateX(0%) translateY(0px);
+        }
+    }
+@keyframes float-up {
+    0%, 100% {
+        transform: translateY(0px);
+        } 50% {
+        transform: translateY(-12px);
+        }
+    }
+@keyframes pulse-glow {
+    0%, 100% {
+        opacity: 0.1;
+        transform: scale(1);
+        } 50% {
+        opacity: 0.25;
+        transform: scale(1.1);
+        }
+    }
+@keyframes rotate-slow {
+    0% {
+        transform: rotate(0deg);
+        } 100% {
+        transform: rotate(360deg);
+        }
+    }
+.breathe-glow {
+    animation: breathe 5s ease-in-out infinite
+    }
+.wave-flow {
+    animation: wave-flow 15s ease-in-out infinite
+    }
+.float-up {
+    animation: float-up 5s ease-in-out infinite
+    }
+.pulse-glow {
+    animation: pulse-glow 4s ease-in-out infinite
+    }
+.rotate-slow {
+    animation: rotate-slow 30s linear infinite
+    }
+.glow-box {
+    box-shadow: 0 0 60px rgba(255, 159, 67, 0.15), 0 0 100px rgba(16, 97, 136, 0.08)
+    }</style>
+<style>.material-icons {
+    width: 1em
+    }</style><style>.material-icons {
+    direction: rtl
+    }</style></head>
+<body>
+<div class="ppt-slide relative overflow-hidden" style="height: 720px;
+background: linear-gradient(135deg, #F7F3E6 0%, #F0F4E8 40%, #E8F4F0 100%)">
+<div class="absolute inset-0 z-0" style="flex-shrink: 0">
+<div class="absolute breathe-glow" style="top: 10%;
+left: 15%;
+width: 350px;
+height: 350px;
+background: radial-gradient(circle, rgba(255, 159, 67, 0.25) 0%, transparent 70%);
+border-radius: 50%;
+filter: blur(50px)"></div>
+<div class="absolute breathe-glow" style="bottom: 15%;
+right: 20%;
+width: 300px;
+height: 300px;
+background: radial-gradient(circle, rgba(16, 97, 136, 0.2) 0%, transparent 70%);
+border-radius: 50%;
+filter: blur(45px);
+animation-delay: 2s"></div>
+<div class="absolute breathe-glow" style="top: 50%;
+left: 45%;
+width: 320px;
+height: 320px;
+background: radial-gradient(circle, rgba(255, 159, 67, 0.22) 0%, transparent 70%);
+border-radius: 50%;
+filter: blur(48px);
+animation-delay: 3.5s"></div>
+</div>
+
+<div class="absolute inset-0 z-0 opacity-12">
+<svg class="absolute wave-flow" style="top: 35%;
+left: -30%;
+width: 160%;
+height: 180px" viewBox="0 0 1600 180" preserveAspectRatio="none">
+<path d="M0,90 Q400,30 800,90 T1600,90" fill="none" stroke="url(#grad1)" stroke-width="2"/>
+<defs>
+<linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="0%">
+<stop offset="0%" style="stop-color: #FF9F43;
+stop-opacity: 0"/>
+<stop offset="50%" style="stop-color: #FF9F43;
+stop-opacity: 0.6"/>
+<stop offset="100%" style="stop-color: #FF9F43;
+stop-opacity: 0"/>
+</linearGradient>
+</defs>
+</svg>
+<svg class="absolute wave-flow" style="bottom: 38%;
+left: -40%;
+width: 180%;
+height: 160px;
+animation-delay: 8s" viewBox="0 0 1800 160" preserveAspectRatio="none">
+<path d="M0,80 Q450,35 900,80 T1800,80" fill="none" stroke="url(#grad2)" stroke-width="2"/>
+<defs>
+<linearGradient id="grad2" x1="0%" y1="0%" x2="100%" y2="0%">
+<stop offset="0%" style="stop-color: #106188;
+stop-opacity: 0"/>
+<stop offset="50%" style="stop-color: #106188;
+stop-opacity: 0.5"/>
+<stop offset="100%" style="stop-color: #106188;
+stop-opacity: 0"/>
+</linearGradient>
+</defs>
+</svg>
+</div>
+
+<div class="relative z-10 h-full flex flex-col px-20 py-14">
+<div class="mb-6">
+<h1 class="title-font font-light mb-3" style="font-size: 44px;
+letter-spacing: 0.08em;
+color: #106188">
+核心功能模块（三）
+</h1>
+<div class="w-20 h-0.5 rounded-full" style="background: linear-gradient(to right, #FF9F43, transparent)"></div>
+</div>
+
+<div class="flex-grow flex gap-8 items-center">
+<div class="w-1/3 relative">
+<div class="absolute pulse-glow rotate-slow" style="top: -30px;
+right: -30px;
+width: 120px;
+height: 120px;
+border: 2px solid rgba(255, 159, 67, 0.2);
+border-radius: 50%"></div>
+<div class="absolute pulse-glow" style="bottom: -25px;
+left: -20px;
+width: 100px;
+height: 100px;
+border: 2px solid rgba(16, 97, 136, 0.15);
+border-radius: 50%;
+animation-delay: 2s"></div>
+
+<div class="rounded-3xl p-7 glow-box float-up h-full" style="background: rgba(255, 159, 67, 0.12);
+backdrop-filter: blur(20px)">
+<div class="flex items-center gap-3 mb-5">
+<i class="material-icons" style="color: #FF9F43;
+font-size: 32px">spa</i>
+<h2 class="title-font font-semibold" style="font-size: 26px;
+color: #106188;
+letter-spacing: 0.05em">正念冥想与工具</h2>
+</div>
+
+<div class="space-y-3">
+<div class="flex items-start gap-3">
+<i class="material-icons flex-shrink-0" style="color: #106188;
+font-size: 22px">library_books</i>
+<div>
+<p class="font-medium text-base mb-1" style="color: #106188">冥想引导库</p>
+<p class="text-sm font-light" style="color: #106188;
+opacity: 0.7">身体扫描、慈心禅等引导音频</p>
+</div>
+</div>
+
+<div class="flex items-start gap-3">
+<i class="material-icons flex-shrink-0" style="color: #106188;
+font-size: 22px">timer</i>
+<div>
+<p class="font-medium text-base mb-1" style="color: #106188">智能打坐计时器</p>
+<p class="text-sm font-light" style="color: #106188;
+opacity: 0.7">间歇钟声提醒，记录冥想数据</p>
+</div>
+</div>
+
+<div class="flex items-start gap-3">
+<i class="material-icons flex-shrink-0" style="color: #106188;
+font-size: 22px">settings_input_component</i>
+<div>
+<p class="font-medium text-base mb-1" style="color: #106188">体感联动设置</p>
+<p class="text-sm font-light" style="color: #106188;
+opacity: 0.7">开启体感反馈，增强沉浸感</p>
+</div>
+</div>
+
+<div class="flex items-start gap-3">
+<i class="material-icons flex-shrink-0" style="color: #106188;
+font-size: 22px">share</i>
+<div>
+<p class="font-medium text-base mb-1" style="color: #106188">心得分享</p>
+<p class="text-sm font-light" style="color: #106188;
+opacity: 0.7">记录心情，生成冥想卡片</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="w-1/3 relative">
+<div class="absolute pulse-glow rotate-slow" style="top: -30px;
+left: -30px;
+width: 120px;
+height: 120px;
+border: 2px solid rgba(16, 97, 136, 0.15);
+border-radius: 50%;
+animation-delay: 1s"></div>
+
+<div class="rounded-3xl p-7 glow-box float-up h-full" style="background: rgba(16, 97, 136, 0.08);
+backdrop-filter: blur(20px);
+animation-delay: 0.5s">
+<div class="flex items-center gap-3 mb-5">
+<i class="material-icons" style="color: #FF9F43;
+font-size: 32px">music_note</i>
+<h2 class="title-font font-semibold" style="font-size: 26px;
+color: #106188;
+letter-spacing: 0.05em">灵性音乐创作工坊</h2>
+</div>
+
+<div class="space-y-3">
+<div class="flex items-start gap-3">
+<i class="material-icons flex-shrink-0" style="color: #106188;
+font-size: 22px">auto_awesome</i>
+<div>
+<p class="font-medium text-base mb-1" style="color: #106188">智能辅助创作</p>
+<p class="text-sm font-light" style="color: #106188;
+opacity: 0.7">AI自动生成旋律骨架</p>
+</div>
+</div>
+
+<div class="flex items-start gap-3">
+<i class="material-icons flex-shrink-0" style="color: #106188;
+font-size: 22px">mic_none</i>
+<div>
+<p class="font-medium text-base mb-1" style="color: #106188">呼吸成音创作</p>
+<p class="text-sm font-light" style="color: #106188;
+opacity: 0.7">呼吸录音转化为音乐片段</p>
+</div>
+</div>
+
+<div class="flex items-start gap-3">
+<i class="material-icons flex-shrink-0" style="color: #106188;
+font-size: 22px">psychology</i>
+<div>
+<p class="font-medium text-base mb-1" style="color: #106188">脑波/HRV成曲</p>
+<p class="text-sm font-light" style="color: #106188;
+opacity: 0.7">生理数据转化为身心共振曲</p>
+</div>
+</div>
+
+<div class="flex items-start gap-3">
+<i class="material-icons flex-shrink-0" style="color: #106188;
+font-size: 22px">album</i>
+<div>
+<p class="font-medium text-base mb-1" style="color: #106188">个人能量留声机</p>
+<p class="text-sm font-light" style="color: #106188;
+opacity: 0.7">生成能量音轨，可刻录黑胶唱片</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="w-1/3 relative">
+<div class="absolute pulse-glow rotate-slow" style="bottom: -25px;
+right: -25px;
+width: 110px;
+height: 110px;
+border: 2px solid rgba(255, 159, 67, 0.2);
+border-radius: 50%;
+animation-delay: 2s"></div>
+
+<div class="rounded-3xl p-7 glow-box float-up h-full" style="background: rgba(255, 159, 67, 0.12);
+backdrop-filter: blur(20px);
+animation-delay: 1s">
+<div class="flex items-center gap-3 mb-5">
+<i class="material-icons" style="color: #FF9F43;
+font-size: 32px">touch_app</i>
+<h2 class="title-font font-semibold" style="font-size: 26px;
+color: #106188;
+letter-spacing: 0.05em">可触碰的疗愈·实体兑换</h2>
+</div>
+
+<div class="space-y-3">
+<div class="flex items-start gap-3">
+<i class="material-icons flex-shrink-0" style="color: #106188;
+font-size: 22px">nfc</i>
+<div>
+<p class="font-medium text-base mb-1" style="color: #106188">NFC能量卡片</p>
+<p class="text-sm font-light" style="color: #106188;
+opacity: 0.7">数字徽章兑换，轻触播放疗愈音乐</p>
+</div>
+</div>
+
+<div class="flex items-start gap-3">
+<i class="material-icons flex-shrink-0" style="color: #106188;
+font-size: 22px">shopping_bag</i>
+<div>
+<p class="font-medium text-base mb-1" style="color: #106188">同频实体文创</p>
+<p class="text-sm font-light" style="color: #106188;
+opacity: 0.7">果壳铃、脉轮吊坠、声音精油香氛</p>
+</div>
+</div>
+
+<div class="flex items-start gap-3">
+<i class="material-icons flex-shrink-0" style="color: #106188;
+font-size: 22px">storefront</i>
+<div>
+<p class="font-medium text-base mb-1" style="color: #106188">实体商城</p>
+<p class="text-sm font-light" style="color: #106188;
+opacity: 0.7">积分兑换购买，附NFC芯片解锁内容</p>
+</div>
+</div>
+
+<div class="mt-4 p-3 rounded-xl text-center" style="background: rgba(255, 255, 255, 0.2)">
+<p class="text-sm font-medium" style="color: #106188">从虚拟到实体，让疗愈随身携带</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>
+
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>特色亮点</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;400;600;700&family=Spectral:wght@300;400;600&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<style type="text/tailwindcss">
+@layer utilities {
+.ppt-slide {
+@apply relative w-[1280px] min-h-[720px] mx-auto box-border
+}
+}
+</style>
+<style>body {
+    font-family: "Noto Serif SC", serif;
+    background: linear-gradient(135deg, #F7F3E6 0%, #F0F4E8 50%, #E8F4F0 100%)
+    }
+.title-font {
+    font-family: "Noto Serif SC", serif
+    }
+.number-font {
+    font-family: "Spectral", serif
+    }
+@keyframes breathe {
+    0%, 100% {
+        opacity: 0.3;
+        transform: scale(1);
+        } 50% {
+        opacity: 0.6;
+        transform: scale(1.08);
+        }
+    }
+@keyframes wave-flow {
+    0% {
+        transform: translateX(-30%) translateY(0px);
+        } 100% {
+        transform: translateX(0%) translateY(0px);
+        }
+    }
+@keyframes float-up {
+    0%, 100% {
+        transform: translateY(0px);
+        } 50% {
+        transform: translateY(-12px);
+        }
+    }
+@keyframes pulse-glow {
+    0%, 100% {
+        opacity: 0.1;
+        transform: scale(1);
+        } 50% {
+        opacity: 0.25;
+        transform: scale(1.1);
+        }
+    }
+@keyframes rotate-slow {
+    0% {
+        transform: rotate(0deg);
+        } 100% {
+        transform: rotate(360deg);
+        }
+    }
+.breathe-glow {
+    animation: breathe 5s ease-in-out infinite
+    }
+.wave-flow {
+    animation: wave-flow 15s ease-in-out infinite
+    }
+.float-up {
+    animation: float-up 5s ease-in-out infinite
+    }
+.pulse-glow {
+    animation: pulse-glow 4s ease-in-out infinite
+    }
+.rotate-slow {
+    animation: rotate-slow 30s linear infinite
+    }
+.glow-box {
+    box-shadow: 0 0 60px rgba(231, 241, 119, 0.15), 0 0 100px rgba(16, 97, 136, 0.08)
+    }
+.card-float-1 {
+    animation: float-up 5s ease-in-out infinite
+    }
+.card-float-2 {
+    animation: float-up 5s ease-in-out infinite 0.5s
+    }
+.card-float-3 {
+    animation: float-up 5s ease-in-out infinite 1s
+    }
+.card-float-4 {
+    animation: float-up 5s ease-in-out infinite 1.5s
+    }
+.card-float-5 {
+    animation: float-up 5s ease-in-out infinite 2s
+    }</style>
+<style>.material-icons {
+    width: 1em
+    }</style><style>.material-icons {
+    direction: rtl
+    }</style></head>
+<body>
+<div class="ppt-slide relative overflow-hidden" style="height: 720px;
+background: linear-gradient(135deg, #F7F3E6 0%, #F0F4E8 40%, #E8F4F0 100%)">
+<div class="absolute inset-0 z-0" style="flex-shrink: 0">
+<div class="absolute breathe-glow" style="top: 12%;
+left: 18%;
+width: 300px;
+height: 300px;
+background: radial-gradient(circle, rgba(231, 241, 119, 0.25) 0%, transparent 70%);
+border-radius: 50%;
+filter: blur(50px)"></div>
+<div class="absolute breathe-glow" style="bottom: 20%;
+right: 25%;
+width: 280px;
+height: 280px;
+background: radial-gradient(circle, rgba(16, 97, 136, 0.2) 0%, transparent 70%);
+border-radius: 50%;
+filter: blur(45px);
+animation-delay: 2s"></div>
+<div class="absolute breathe-glow" style="top: 40%;
+right: 15%;
+width: 320px;
+height: 320px;
+background: radial-gradient(circle, rgba(231, 241, 119, 0.22) 0%, transparent 70%);
+border-radius: 50%;
+filter: blur(48px);
+animation-delay: 3.5s"></div>
+<div class="absolute breathe-glow" style="bottom: 35%;
+left: 35%;
+width: 250px;
+height: 250px;
+background: radial-gradient(circle, rgba(16, 97, 136, 0.18) 0%, transparent 70%);
+border-radius: 50%;
+filter: blur(42px);
+animation-delay: 5s"></div>
+</div>
+
+<div class="absolute inset-0 z-0 opacity-12">
+<svg class="absolute wave-flow" style="top: 25%;
+left: -30%;
+width: 160%;
+height: 180px" viewBox="0 0 1600 180" preserveAspectRatio="none">
+<path d="M0,90 Q400,30 800,90 T1600,90" fill="none" stroke="url(#grad1)" stroke-width="2"/>
+<defs>
+<linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="0%">
+<stop offset="0%" style="stop-color: #E7F177;
+stop-opacity: 0"/>
+<stop offset="50%" style="stop-color: #E7F177;
+stop-opacity: 0.6"/>
+<stop offset="100%" style="stop-color: #E7F177;
+stop-opacity: 0"/>
+</linearGradient>
+</defs>
+</svg>
+<svg class="absolute wave-flow" style="bottom: 30%;
+left: -40%;
+width: 180%;
+height: 160px;
+animation-delay: 8s" viewBox="0 0 1800 160" preserveAspectRatio="none">
+<path d="M0,80 Q450,35 900,80 T1800,80" fill="none" stroke="url(#grad2)" stroke-width="2"/>
+<defs>
+<linearGradient id="grad2" x1="0%" y1="0%" x2="100%" y2="0%">
+<stop offset="0%" style="stop-color: #106188;
+stop-opacity: 0"/>
+<stop offset="50%" style="stop-color: #106188;
+stop-opacity: 0.5"/>
+<stop offset="100%" style="stop-color: #106188;
+stop-opacity: 0"/>
+</linearGradient>
+</defs>
+</svg>
+</div>
+
+<div class="relative z-10 h-full flex flex-col px-20 py-16">
+<div class="mb-8">
+<h1 class="title-font font-light mb-3" style="font-size: 44px;
+letter-spacing: 0.08em;
+color: #106188">
+特色亮点
+</h1>
+<div class="w-20 h-0.5 rounded-full" style="background: linear-gradient(to right, #E7F177, transparent)"></div>
+</div>
+
+<div class="flex-grow flex gap-6">
+<div class="w-2/3 grid grid-cols-2 gap-5">
+<div class="rounded-3xl p-6 glow-box card-float-1 relative" style="background: rgba(231, 241, 119, 0.12);
+backdrop-filter: blur(20px)">
+<div class="absolute pulse-glow rotate-slow" style="top: -20px;
+right: -20px;
+width: 100px;
+height: 100px;
+border: 2px solid rgba(231, 241, 119, 0.2);
+border-radius: 50%"></div>
+<div class="flex items-center gap-3 mb-4">
+<i class="material-icons" style="color: #E7F177;
+font-size: 36px">blur_on</i>
+<h2 class="title-font font-semibold" style="font-size: 28px;
+color: #106188;
+letter-spacing: 0.05em">五感共振</h2>
+</div>
+<p class="text-base font-light leading-relaxed" style="color: #106188;
+opacity: 0.85">从听觉到触觉、视觉，再到社交连接与实体收藏，构建全方位疗愈生态</p>
+</div>
+
+<div class="rounded-3xl p-6 glow-box card-float-2 relative" style="background: rgba(16, 97, 136, 0.08);
+backdrop-filter: blur(20px)">
+<div class="absolute pulse-glow rotate-slow" style="top: -20px;
+left: -20px;
+width: 100px;
+height: 100px;
+border: 2px solid rgba(16, 97, 136, 0.15);
+border-radius: 50%;
+animation-delay: 1s"></div>
+<div class="flex items-center gap-3 mb-4">
+<i class="material-icons" style="color: #E7F177;
+font-size: 36px">swap_horiz</i>
+<h2 class="title-font font-semibold" style="font-size: 28px;
+color: #106188;
+letter-spacing: 0.05em">双向交互</h2>
+</div>
+<p class="text-base font-light leading-relaxed" style="color: #106188;
+opacity: 0.85">用户通过呼吸、心跳、情绪主动参与创造，实现"形神合一"</p>
+</div>
+
+<div class="rounded-3xl p-6 glow-box card-float-3 relative" style="background: rgba(16, 97, 136, 0.08);
+backdrop-filter: blur(20px)">
+<div class="absolute pulse-glow rotate-slow" style="bottom: -20px;
+right: -20px;
+width: 100px;
+height: 100px;
+border: 2px solid rgba(16, 97, 136, 0.15);
+border-radius: 50%;
+animation-delay: 2s"></div>
+<div class="flex items-center gap-3 mb-4">
+<i class="material-icons" style="color: #E7F177;
+font-size: 36px">psychology_alt</i>
+<h2 class="title-font font-semibold" style="font-size: 28px;
+color: #106188;
+letter-spacing: 0.05em">情感算法</h2>
+</div>
+<p class="text-base font-light leading-relaxed" style="color: #106188;
+opacity: 0.85">结合出生日期、能量指数、实时生理数据与社交行为，推送真正"懂你"的音乐与人</p>
+</div>
+
+<div class="rounded-3xl p-6 glow-box card-float-4 relative" style="background: rgba(231, 241, 119, 0.12);
+backdrop-filter: blur(20px)">
+<div class="absolute pulse-glow rotate-slow" style="bottom: -20px;
+left: -20px;
+width: 100px;
+height: 100px;
+border: 2px solid rgba(231, 241, 119, 0.2);
+border-radius: 50%;
+animation-delay: 3s"></div>
+<div class="flex items-center gap-3 mb-4">
+<i class="material-icons" style="color: #E7F177;
+font-size: 36px">diversity_3</i>
+<h2 class="title-font font-semibold" style="font-size: 28px;
+color: #106188;
+letter-spacing: 0.05em">社群赋能</h2>
+</div>
+<p class="text-base font-light leading-relaxed" style="color: #106188;
+opacity: 0.85">将孤独的疗愈变为集体共鸣，通过匹配与共修强化归属感与坚持动力</p>
+</div>
+</div>
+
+<div class="w-1/3">
+<div class="rounded-3xl p-7 glow-box card-float-5 h-full relative" style="background: rgba(231, 241, 119, 0.12);
+backdrop-filter: blur(20px)">
+<div class="absolute pulse-glow rotate-slow" style="top: -25px;
+left: -25px;
+width: 110px;
+height: 110px;
+border: 2px solid rgba(231, 241, 119, 0.2);
+border-radius: 50%"></div>
+<div class="absolute pulse-glow rotate-slow" style="bottom: -25px;
+right: -25px;
+width: 110px;
+height: 110px;
+border: 2px solid rgba(16, 97, 136, 0.15);
+border-radius: 50%;
+animation-delay: 4s"></div>
+
+<div class="flex items-center gap-3 mb-5">
+<i class="material-icons" style="color: #E7F177;
+font-size: 36px">layers</i>
+<h2 class="title-font font-semibold" style="font-size: 28px;
+color: #106188;
+letter-spacing: 0.05em">虚实融合</h2>
+</div>
+
+<p class="text-base font-light leading-relaxed mb-6" style="color: #106188;
+opacity: 0.85">数字体验可沉淀为可触碰的纪念品，让疗愈频率融入日常生活物件，形成持续的心理暗示</p>
+
+<div class="space-y-3">
+<div class="flex items-center gap-3 p-3 rounded-xl" style="background: rgba(255, 255, 255, 0.2)">
+<i class="material-icons" style="color: #106188;
+font-size: 24px">nfc</i>
+<span class="text-sm font-medium" style="color: #106188">NFC能量卡片</span>
+</div>
+<div class="flex items-center gap-3 p-3 rounded-xl" style="background: rgba(255, 255, 255, 0.2)">
+<i class="material-icons" style="color: #106188;
+font-size: 24px">local_florist</i>
+<span class="text-sm font-medium" style="color: #106188">频率调校果壳铃</span>
+</div>
+<div class="flex items-center gap-3 p-3 rounded-xl" style="background: rgba(255, 255, 255, 0.2)">
+<i class="material-icons" style="color: #106188;
+font-size: 24px">album</i>
+<span class="text-sm font-medium" style="color: #106188">个人能量音轨</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>
+
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>用户体验流程</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;400;600;700&family=Spectral:wght@300;400;600&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<style type="text/tailwindcss">
+@layer utilities {
+.ppt-slide {
+@apply relative w-[1280px] min-h-[720px] mx-auto box-border
+}
+}
+</style>
+<style>body {
+    font-family: "Noto Serif SC", serif;
+    background: linear-gradient(135deg, #F7F3E6 0%, #F0F4E8 50%, #E8F4F0 100%)
+    }
+.title-font {
+    font-family: "Noto Serif SC", serif
+    }
+.number-font {
+    font-family: "Spectral", serif
+    }
+@keyframes breathe {
+    0%, 100% {
+        opacity: 0.3;
+        transform: scale(1);
+        } 50% {
+        opacity: 0.6;
+        transform: scale(1.08);
+        }
+    }
+@keyframes wave-flow {
+    0% {
+        transform: translateX(-30%) translateY(0px);
+        } 100% {
+        transform: translateX(0%) translateY(0px);
+        }
+    }
+@keyframes float-up {
+    0%, 100% {
+        transform: translateY(0px);
+        } 50% {
+        transform: translateY(-12px);
+        }
+    }
+@keyframes pulse-glow {
+    0%, 100% {
+        opacity: 0.1;
+        transform: scale(1);
+        } 50% {
+        opacity: 0.25;
+        transform: scale(1.1);
+        }
+    }
+@keyframes rotate-slow {
+    0% {
+        transform: rotate(0deg);
+        } 100% {
+        transform: rotate(360deg);
+        }
+    }
+@keyframes draw-line {
+    0% {
+        stroke-dashoffset: 1000;
+        } 100% {
+        stroke-dashoffset: 0;
+        }
+    }
+.breathe-glow {
+    animation: breathe 5s ease-in-out infinite
+    }
+.wave-flow {
+    animation: wave-flow 15s ease-in-out infinite
+    }
+.float-up {
+    animation: float-up 5s ease-in-out infinite
+    }
+.pulse-glow {
+    animation: pulse-glow 4s ease-in-out infinite
+    }
+.rotate-slow {
+    animation: rotate-slow 30s linear infinite
+    }
+.glow-box {
+    box-shadow: 0 0 60px rgba(231, 241, 119, 0.15), 0 0 100px rgba(16, 97, 136, 0.08)
+    }
+.step-float-1 {
+    animation: float-up 5s ease-in-out infinite
+    }
+.step-float-2 {
+    animation: float-up 5s ease-in-out infinite 0.7s
+    }
+.step-float-3 {
+    animation: float-up 5s ease-in-out infinite 1.4s
+    }
+.step-float-4 {
+    animation: float-up 5s ease-in-out infinite 2.1s
+    }
+.step-float-5 {
+    animation: float-up 5s ease-in-out infinite 2.8s
+    }
+.step-float-6 {
+    animation: float-up 5s ease-in-out infinite 3.5s
+    }</style>
+<style>.material-icons {
+    width: 1em
+    }</style><style>.material-icons {
+    direction: rtl
+    }</style></head>
+<body>
+<div class="ppt-slide relative overflow-hidden" style="height: 720px;
+background: linear-gradient(135deg, #F7F3E6 0%, #F0F4E8 40%, #E8F4F0 100%)">
+<div class="absolute inset-0 z-0" style="flex-shrink: 0">
+<div class="absolute breathe-glow" style="top: 8%;
+left: 12%;
+width: 280px;
+height: 280px;
+background: radial-gradient(circle, rgba(231, 241, 119, 0.25) 0%, transparent 70%);
+border-radius: 50%;
+filter: blur(50px)"></div>
+<div class="absolute breathe-glow" style="bottom: 15%;
+right: 18%;
+width: 260px;
+height: 260px;
+background: radial-gradient(circle, rgba(16, 97, 136, 0.2) 0%, transparent 70%);
+border-radius: 50%;
+filter: blur(45px);
+animation-delay: 2s"></div>
+<div class="absolute breathe-glow" style="top: 35%;
+right: 25%;
+width: 300px;
+height: 300px;
+background: radial-gradient(circle, rgba(231, 241, 119, 0.22) 0%, transparent 70%);
+border-radius: 50%;
+filter: blur(48px);
+animation-delay: 3.5s"></div>
+</div>
+
+<div class="absolute inset-0 z-0 opacity-10">
+<svg class="absolute wave-flow" style="top: 20%;
+left: -30%;
+width: 160%;
+height: 180px" viewBox="0 0 1600 180" preserveAspectRatio="none">
+<path d="M0,90 Q400,30 800,90 T1600,90" fill="none" stroke="url(#grad1)" stroke-width="2"/>
+<defs>
+<linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="0%">
+<stop offset="0%" style="stop-color: #E7F177;
+stop-opacity: 0"/>
+<stop offset="50%" style="stop-color: #E7F177;
+stop-opacity: 0.6"/>
+<stop offset="100%" style="stop-color: #E7F177;
+stop-opacity: 0"/>
+</linearGradient>
+</defs>
+</svg>
+</div>
+
+<div class="relative z-10 h-full flex flex-col px-20 py-16">
+<div class="mb-7">
+<h1 class="title-font font-light mb-3" style="font-size: 44px;
+letter-spacing: 0.08em;
+color: #106188">
+用户体验流程
+</h1>
+<div class="w-20 h-0.5 rounded-full" style="background: linear-gradient(to right, #E7F177, transparent)"></div>
+</div>
+
+<div class="flex-grow flex gap-6">
+<div class="w-2/5 flex flex-col gap-4">
+<div class="rounded-3xl p-5 glow-box step-float-1 relative" style="background: rgba(231, 241, 119, 0.12);
+backdrop-filter: blur(20px)">
+<div class="flex items-center gap-3 mb-3">
+<div class="w-11 h-11 rounded-full flex items-center justify-center" style="background: rgba(16, 97, 136, 0.1)">
+<i class="material-icons" style="color: #106188;
+font-size: 26px">login</i>
+</div>
+<h3 class="title-font font-semibold text-xl" style="color: #106188">注册/登录</h3>
+</div>
+<p class="text-sm font-light ml-14" style="color: #106188;
+opacity: 0.75">微信授权登录，填写出生日期，选择疗愈兴趣标签</p>
+</div>
+
+<div class="rounded-3xl p-5 glow-box step-float-2 relative" style="background: rgba(16, 97, 136, 0.08);
+backdrop-filter: blur(20px)">
+<div class="flex items-center gap-3 mb-3">
+<div class="w-11 h-11 rounded-full flex items-center justify-center" style="background: rgba(231, 241, 119, 0.15)">
+<i class="material-icons" style="color: #106188;
+font-size: 26px">home</i>
+</div>
+<h3 class="title-font font-semibold text-xl" style="color: #106188">首页</h3>
+</div>
+<div class="ml-14 flex flex-wrap gap-2">
+<span class="px-3 py-1 rounded-full text-xs font-light" style="background: rgba(255, 255, 255, 0.3);
+color: #106188">今日能量指数</span>
+<span class="px-3 py-1 rounded-full text-xs font-light" style="background: rgba(255, 255, 255, 0.3);
+color: #106188">推荐音乐</span>
+<span class="px-3 py-1 rounded-full text-xs font-light" style="background: rgba(255, 255, 255, 0.3);
+color: #106188">音愈伙伴</span>
+</div>
+</div>
+
+<div class="rounded-3xl p-5 glow-box step-float-3 relative" style="background: rgba(231, 241, 119, 0.12);
+backdrop-filter: blur(20px)">
+<div class="flex items-center gap-3 mb-3">
+<div class="w-11 h-11 rounded-full flex items-center justify-center" style="background: rgba(16, 97, 136, 0.1)">
+<i class="material-icons" style="color: #106188;
+font-size: 26px">explore</i>
+</div>
+<h3 class="title-font font-semibold text-xl" style="color: #106188">发现页</h3>
+</div>
+<div class="ml-14 flex flex-wrap gap-2">
+<span class="px-3 py-1 rounded-full text-xs font-light" style="background: rgba(255, 255, 255, 0.3);
+color: #106188">场景推荐</span>
+<span class="px-3 py-1 rounded-full text-xs font-light" style="background: rgba(255, 255, 255, 0.3);
+color: #106188">频率疗愈</span>
+<span class="px-3 py-1 rounded-full text-xs font-light" style="background: rgba(255, 255, 255, 0.3);
+color: #106188">社交共振</span>
+</div>
+</div>
+</div>
+
+<div class="w-1/5 flex items-center justify-center">
+<svg width="100" height="480" viewBox="0 0 100 480" style="position: relative">
+<path d="M50,40 Q20,120 50,160 Q80,200 50,240 Q20,280 50,320 Q80,360 50,400 Q20,440 50,460" fill="none" stroke="rgba(231, 241, 119, 0.4)" stroke-width="3" stroke-linecap="round" stroke-dasharray="8,8" style="animation: wave-flow 8s ease-in-out infinite"/>
+<circle cx="50" cy="40" r="6" fill="#E7F177"/>
+<circle cx="50" cy="160" r="6" fill="#16, 97, 136" style="opacity: 0.7"/>
+<circle cx="50" cy="240" r="6" fill="#E7F177"/>
+<circle cx="50" cy="320" r="6" fill="#16, 97, 136" style="opacity: 0.7"/>
+<circle cx="50" cy="400" r="6" fill="#E7F177"/>
+<circle cx="50" cy="460" r="6" fill="#16, 97, 136" style="opacity: 0.7"/>
+</svg>
+</div>
+
+<div class="w-2/5 flex flex-col gap-4">
+<div class="rounded-3xl p-5 glow-box step-float-4 relative" style="background: rgba(16, 97, 136, 0.08);
+backdrop-filter: blur(20px)">
+<div class="flex items-center gap-3 mb-3">
+<div class="w-11 h-11 rounded-full flex items-center justify-center" style="background: rgba(231, 241, 119, 0.15)">
+<i class="material-icons" style="color: #106188;
+font-size: 26px">self_improvement</i>
+</div>
+<h3 class="title-font font-semibold text-xl" style="color: #106188">冥想页</h3>
+</div>
+<div class="ml-14 flex flex-wrap gap-2">
+<span class="px-3 py-1 rounded-full text-xs font-light" style="background: rgba(255, 255, 255, 0.3);
+color: #106188">引导语</span>
+<span class="px-3 py-1 rounded-full text-xs font-light" style="background: rgba(255, 255, 255, 0.3);
+color: #106188">计时器</span>
+<span class="px-3 py-1 rounded-full text-xs font-light" style="background: rgba(255, 255, 255, 0.3);
+color: #106188">双人冥想</span>
+</div>
+</div>
+
+<div class="rounded-3xl p-5 glow-box step-float-5 relative" style="background: rgba(231, 241, 119, 0.12);
+backdrop-filter: blur(20px)">
+<div class="flex items-center gap-3 mb-3">
+<div class="w-11 h-11 rounded-full flex items-center justify-center" style="background: rgba(16, 97, 136, 0.1)">
+<i class="material-icons" style="color: #106188;
+font-size: 26px">create</i>
+</div>
+<h3 class="title-font font-semibold text-xl" style="color: #106188">创作页</h3>
+</div>
+<div class="ml-14 flex flex-wrap gap-2">
+<span class="px-3 py-1 rounded-full text-xs font-light" style="background: rgba(255, 255, 255, 0.3);
+color: #106188">智能创作</span>
+<span class="px-3 py-1 rounded-full text-xs font-light" style="background: rgba(255, 255, 255, 0.3);
+color: #106188">呼吸成音</span>
+<span class="px-3 py-1 rounded-full text-xs font-light" style="background: rgba(255, 255, 255, 0.3);
+color: #106188">能量留声机</span>
+</div>
+</div>
+
+<div class="rounded-3xl p-5 glow-box step-float-6 relative" style="background: rgba(16, 97, 136, 0.08);
+backdrop-filter: blur(20px)">
+<div class="flex items-center gap-3 mb-3">
+<div class="w-11 h-11 rounded-full flex items-center justify-center" style="background: rgba(231, 241, 119, 0.15)">
+<i class="material-icons" style="color: #106188;
+font-size: 26px">person</i>
+</div>
+<h3 class="title-font font-semibold text-xl" style="color: #106188">我的页</h3>
+</div>
+<div class="ml-14 flex flex-wrap gap-2">
+<span class="px-3 py-1 rounded-full text-xs font-light" style="background: rgba(255, 255, 255, 0.3);
+color: #106188">个人资料</span>
+<span class="px-3 py-1 rounded-full text-xs font-light" style="background: rgba(255, 255, 255, 0.3);
+color: #106188">能量周报</span>
+<span class="px-3 py-1 rounded-full text-xs font-light" style="background: rgba(255, 255, 255, 0.3);
+color: #106188">实体商城</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>
+
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>总结</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;400;600;700&family=Spectral:wght@300;400;600&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<style type="text/tailwindcss">
+@layer utilities {
+.ppt-slide {
+@apply relative w-[1280px] min-h-[720px] mx-auto box-border
+}
+}
+</style>
+<style>body {
+    font-family: "Noto Serif SC", serif;
+    background: linear-gradient(135deg, #F7F3E6 0%, #F0F4E8 50%, #E8F4F0 100%)
+    }
+.title-font {
+    font-family: "Noto Serif SC", serif
+    }
+.number-font {
+    font-family: "Spectral", serif
+    }
+@keyframes breathe {
+    0%, 100% {
+        opacity: 0.3;
+        transform: scale(1);
+        } 50% {
+        opacity: 0.6;
+        transform: scale(1.08);
+        }
+    }
+@keyframes wave-flow {
+    0% {
+        transform: translateX(-30%) translateY(0px);
+        } 100% {
+        transform: translateX(0%) translateY(0px);
+        }
+    }
+@keyframes float-gentle {
+    0%, 100% {
+        transform: translateY(0px) scale(1);
+        } 50% {
+        transform: translateY(-8px) scale(1.02);
+        }
+    }
+@keyframes pulse-glow {
+    0%, 100% {
+        opacity: 0.1;
+        transform: scale(1);
+        } 50% {
+        opacity: 0.25;
+        transform: scale(1.1);
+        }
+    }
+@keyframes rotate-slow {
+    0% {
+        transform: rotate(0deg);
+        } 100% {
+        transform: rotate(360deg);
+        }
+    }
+.breathe-glow {
+    animation: breathe 5s ease-in-out infinite
+    }
+.wave-flow {
+    animation: wave-flow 15s ease-in-out infinite
+    }
+.float-gentle {
+    animation: float-gentle 6s ease-in-out infinite
+    }
+.pulse-glow {
+    animation: pulse-glow 4s ease-in-out infinite
+    }
+.rotate-slow {
+    animation: rotate-slow 35s linear infinite
+    }
+.glow-box {
+    box-shadow: 0 0 80px rgba(255, 159, 67, 0.2), 0 0 120px rgba(16, 97, 136, 0.1)
+    }</style>
+<style>.material-icons {
+    width: 1em
+    }</style><style>.material-icons {
+    direction: rtl
+    }</style></head>
+<body>
+<div class="ppt-slide relative overflow-hidden flex items-center justify-center" style="height: 720px;
+background: linear-gradient(135deg, #F7F3E6 0%, #F0F4E8 40%, #E8F4F0 100%)">
+<div class="absolute inset-0 z-0" style="flex-shrink: 0">
+<div class="absolute breathe-glow" style="top: 5%;
+left: 10%;
+width: 380px;
+height: 380px;
+background: radial-gradient(circle, rgba(255, 159, 67, 0.25) 0%, transparent 70%);
+border-radius: 50%;
+filter: blur(60px)"></div>
+<div class="absolute breathe-glow" style="bottom: 10%;
+right: 12%;
+width: 350px;
+height: 350px;
+background: radial-gradient(circle, rgba(16, 97, 136, 0.2) 0%, transparent 70%);
+border-radius: 50%;
+filter: blur(55px);
+animation-delay: 2s"></div>
+<div class="absolute breathe-glow" style="top: 30%;
+right: 5%;
+width: 320px;
+height: 320px;
+background: radial-gradient(circle, rgba(255, 159, 67, 0.22) 0%, transparent 70%);
+border-radius: 50%;
+filter: blur(50px);
+animation-delay: 3.5s"></div>
+<div class="absolute breathe-glow" style="bottom: 25%;
+left: 8%;
+width: 280px;
+height: 280px;
+background: radial-gradient(circle, rgba(16, 97, 136, 0.18) 0%, transparent 70%);
+border-radius: 50%;
+filter: blur(48px);
+animation-delay: 5s"></div>
+</div>
+
+<div class="absolute inset-0 z-0 opacity-10">
+<svg class="absolute wave-flow" style="top: 15%;
+left: -30%;
+width: 160%;
+height: 200px" viewBox="0 0 1600 200" preserveAspectRatio="none">
+<path d="M0,100 Q400,40 800,100 T1600,100" fill="none" stroke="url(#grad1)" stroke-width="2"/>
+<defs>
+<linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="0%">
+<stop offset="0%" style="stop-color: #FF9F43;
+stop-opacity: 0"/>
+<stop offset="50%" style="stop-color: #FF9F43;
+stop-opacity: 0.6"/>
+<stop offset="100%" style="stop-color: #FF9F43;
+stop-opacity: 0"/>
+</linearGradient>
+</defs>
+</svg>
+<svg class="absolute wave-flow" style="bottom: 20%;
+left: -40%;
+width: 180%;
+height: 180px;
+animation-delay: 8s" viewBox="0 0 1800 180" preserveAspectRatio="none">
+<path d="M0,90 Q450,40 900,90 T1800,90" fill="none" stroke="url(#grad2)" stroke-width="2"/>
+<defs>
+<linearGradient id="grad2" x1="0%" y1="0%" x2="100%" y2="0%">
+<stop offset="0%" style="stop-color: #106188;
+stop-opacity: 0"/>
+<stop offset="50%" style="stop-color: #106188;
+stop-opacity: 0.5"/>
+<stop offset="100%" style="stop-color: #106188;
+stop-opacity: 0"/>
+</linearGradient>
+</defs>
+</svg>
+</div>
+
+<div class="relative z-10 text-center px-20 max-w-5xl">
+<div class="mb-8 float-gentle">
+<h1 class="title-font font-light mb-3" style="font-size: 40px;
+letter-spacing: 0.08em;
+color: #106188">灵波和鸣·共振版</h1>
+<div class="w-28 h-0.5 mx-auto rounded-full" style="background: linear-gradient(to right, transparent, #FF9F43, transparent)"></div>
+</div>
+
+<div class="rounded-3xl p-8 glow-box mb-8 float-gentle relative" style="background: rgba(255, 159, 67, 0.12);
+backdrop-filter: blur(25px);
+animation-delay: 0.5s">
+<div class="absolute pulse-glow rotate-slow" style="top: -20px;
+left: -20px;
+width: 90px;
+height: 90px;
+border: 2px solid rgba(255, 159, 67, 0.2);
+border-radius: 50%"></div>
+<div class="absolute pulse-glow rotate-slow" style="bottom: -20px;
+right: -20px;
+width: 90px;
+height: 90px;
+border: 2px solid rgba(16, 97, 136, 0.15);
+border-radius: 50%;
+animation-delay: 2s"></div>
+
+<p class="text-xl leading-relaxed font-light" style="color: #106188;
+opacity: 0.95">
+不再只是一个音乐工具，而是一个以<span class="font-semibold" style="color: #FFF;
+background: #FF9F43;
+padding: 3px 12px;
+border-radius: 6px;
+display: inline-block">同频共振</span>为灵魂的身心健康生态系统
+</p>
+</div>
+
+<div class="grid grid-cols-2 gap-4 mb-8">
+<div class="rounded-3xl p-5 glow-box float-gentle relative" style="background: rgba(255, 159, 67, 0.1);
+backdrop-filter: blur(20px);
+animation-delay: 1s">
+<div class="absolute pulse-glow" style="top: -15px;
+right: -15px;
+width: 70px;
+height: 70px;
+border: 2px solid rgba(255, 159, 67, 0.2);
+border-radius: 50%"></div>
+<div class="flex items-center gap-3 mb-2">
+<i class="material-icons" style="color: #FF9F43;
+font-size: 32px">touch_app</i>
+<h3 class="title-font font-semibold text-xl" style="color: #106188">声音被触摸</h3>
+</div>
+<p class="text-sm font-light" style="color: #106188;
+opacity: 0.75">听觉延伸为触觉沉浸</p>
+</div>
+
+<div class="rounded-3xl p-5 glow-box float-gentle relative" style="background: rgba(16, 97, 136, 0.08);
+backdrop-filter: blur(20px);
+animation-delay: 1.5s">
+<div class="absolute pulse-glow" style="top: -15px;
+left: -15px;
+width: 70px;
+height: 70px;
+border: 2px solid rgba(16, 97, 136, 0.15);
+border-radius: 50%"></div>
+<div class="flex items-center gap-3 mb-2">
+<i class="material-icons" style="color: #FF9F43;
+font-size: 32px">mic</i>
+<h3 class="title-font font-semibold text-xl" style="color: #106188">呼吸被听见</h3>
+</div>
+<p class="text-sm font-light" style="color: #106188;
+opacity: 0.75">用呼吸演奏疗愈之音</p>
+</div>
+
+<div class="rounded-3xl p-5 glow-box float-gentle relative" style="background: rgba(16, 97, 136, 0.08);
+backdrop-filter: blur(20px);
+animation-delay: 2s">
+<div class="absolute pulse-glow" style="bottom: -15px;
+right: -15px;
+width: 70px;
+height: 70px;
+border: 2px solid rgba(16, 97, 136, 0.15);
+border-radius: 50%"></div>
+<div class="flex items-center gap-3 mb-2">
+<i class="material-icons" style="color: #FF9F43;
+font-size: 32px">diversity_3</i>
+<h3 class="title-font font-semibold text-xl" style="color: #106188">疗愈被分享</h3>
+</div>
+<p class="text-sm font-light" style="color: #106188;
+opacity: 0.75">在集体共鸣中找到归属</p>
+</div>
+
+<div class="rounded-3xl p-5 glow-box float-gentle relative" style="background: rgba(255, 159, 67, 0.1);
+backdrop-filter: blur(20px);
+animation-delay: 2.5s">
+<div class="absolute pulse-glow" style="bottom: -15px;
+left: -15px;
+width: 70px;
+height: 70px;
+border: 2px solid rgba(255, 159, 67, 0.2);
+border-radius: 50%"></div>
+<div class="flex items-center gap-3 mb-2">
+<i class="material-icons" style="color: #FF9F43;
+font-size: 32px">nfc</i>
+<h3 class="title-font font-semibold text-xl" style="color: #106188">频率被珍藏</h3>
+</div>
+<p class="text-sm font-light" style="color: #106188;
+opacity: 0.75">数字体验沉淀为实体纪念</p>
+</div>
+</div>
+
+<div class="rounded-3xl p-7 glow-box float-gentle relative" style="background: rgba(255, 255, 255, 0.15);
+backdrop-filter: blur(25px);
+animation-delay: 3s">
+<div class="absolute pulse-glow rotate-slow" style="top: -18px;
+left: -18px;
+width: 80px;
+height: 80px;
+border: 2px solid rgba(255, 159, 67, 0.2);
+border-radius: 50%;
+animation-delay: 3s"></div>
+<div class="absolute pulse-glow rotate-slow" style="bottom: -18px;
+right: -18px;
+width: 80px;
+height: 80px;
+border: 2px solid rgba(16, 97, 136, 0.15);
+border-radius: 50%;
+animation-delay: 5s"></div>
+
+<p class="text-lg leading-relaxed font-light" style="color: #106188;
+opacity: 0.9">
+在这里，每个人都能找到与自己<span class="font-semibold" style="color: #FF9F43">同频的旋律</span>、<span class="font-semibold" style="color: #FF9F43">同频的伙伴</span>、<span class="font-semibold" style="color: #FF9F43">同频的生活方式</span>，在喧嚣世界中回归内心的宁静与平衡
+</p>
+</div>
+</div>
+</div>
+</body>
+</html>
