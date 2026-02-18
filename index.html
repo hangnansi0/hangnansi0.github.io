@@ -1,0 +1,1971 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>灵波和鸣 - 共振版</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;400;600;700&family=Spectral:wght@300;400;600&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-snap-type: y mandatory;
+  scroll-padding-top: 0;
+}
+
+body {
+  font-family: "Noto Serif SC", serif;
+  background: linear-gradient(135deg, #F7F3E6 0%, #F0F4E8 50%, #E8F4F0 100%);
+  overflow-x: hidden;
+}
+
+.title-font {
+  font-family: "Noto Serif SC", serif;
+}
+
+.number-font {
+  font-family: "Spectral", serif;
+}
+
+.section {
+  width: 100%;
+  position: relative;
+  scroll-snap-align: start;
+  scroll-snap-stop: proximity;
+  min-height: 100vh;
+  height: auto;
+  display: block;
+  overflow-y: auto;
+}
+
+/* 动画定义 */
+@keyframes breathe {
+  0%, 100% {
+    opacity: 0.3;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.6;
+    transform: scale(1.05);
+  }
+}
+
+@keyframes wave-flow-1 {
+  0% {
+    transform: translateX(-50%) translateY(0px);
+  }
+  100% {
+    transform: translateX(0%) translateY(0px);
+  }
+}
+
+@keyframes wave-flow-2 {
+  0% {
+    transform: translateX(-100%) translateY(0px);
+  }
+  100% {
+    transform: translateX(-50%) translateY(0px);
+  }
+}
+
+@keyframes ripple-expand {
+  0% {
+    transform: scale(1);
+    opacity: 0.6;
+  }
+  100% {
+    transform: scale(2.5);
+    opacity: 0;
+  }
+}
+
+@keyframes pulse-overlay {
+  0%, 100% {
+    opacity: 0.15;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.3;
+    transform: scale(1.1);
+  }
+}
+
+@keyframes float-up {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    opacity: 0.1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.25;
+    transform: scale(1.1);
+  }
+}
+
+@keyframes bounce-gentle {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+.breathe-glow {
+  animation: breathe 5s ease-in-out infinite;
+}
+
+.wave-flow-1 {
+  animation: wave-flow-1 20s ease-in-out infinite;
+}
+
+.wave-flow-2 {
+  animation: wave-flow-2 18s ease-in-out infinite;
+}
+
+.ripple-expand {
+  animation: ripple-expand 4s ease-out infinite;
+}
+
+.ripple-delay-1 {
+  animation-delay: 0.8s;
+}
+
+.ripple-delay-2 {
+  animation-delay: 1.6s;
+}
+
+.ripple-delay-3 {
+  animation-delay: 2.4s;
+}
+
+.float-up {
+  animation: float-up 5s ease-in-out infinite;
+}
+
+.pulse-glow {
+  animation: pulse-glow 4s ease-in-out infinite;
+}
+
+.bounce-gentle {
+  animation: bounce-gentle 2s ease-in-out infinite;
+}
+
+.glow-effect {
+  box-shadow: 0 0 40px rgba(255, 159, 67, 0.3), 0 0 80px rgba(255, 159, 67, 0.15);
+}
+
+.glow-box {
+  box-shadow: 0 0 60px rgba(255, 159, 67, 0.15), 0 0 100px rgba(16, 97, 136, 0.08);
+}
+
+.material-icons {
+  width: 1em;
+  direction: rtl;
+}
+
+/* 导航栏样式 */
+.nav-dots {
+  position: fixed;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.nav-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(255, 159, 67, 0.4);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 2px solid rgba(255, 159, 67, 0.3);
+}
+
+.nav-dot.active {
+  background: #FF9F43;
+  border-color: #FF9F43;
+  transform: scale(1.3);
+}
+
+/* 音乐按钮样式 - 右下角小图标 */
+.music-control {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+}
+
+.music-btn {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: rgba(255, 159, 67, 0.95);
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 15px rgba(255, 159, 67, 0.4);
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.music-btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 20px rgba(255, 159, 67, 0.5);
+}
+
+.music-btn:active {
+  transform: scale(0.95);
+}
+
+.music-btn.playing {
+  background: rgba(16, 97, 136, 0.95);
+}
+
+.music-btn.playing .music-icon {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+.music-btn .music-icon {
+  font-size: 24px;
+  color: white;
+}
+
+.music-btn .music-waves {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 159, 67, 0.6);
+  animation: ripple-expand 2s ease-out infinite;
+}
+
+.music-btn.playing .music-waves {
+  border-color: rgba(16, 97, 136, 0.6);
+}
+
+/* 卡片样式 */
+.feature-card {
+  background: rgba(255, 159, 67, 0.12);
+  backdrop-filter: blur(15px);
+  border-radius: 12px;
+  padding: 14px;
+  margin-bottom: 12px;
+  border-left: 3px solid #FF9F43;
+}
+
+.feature-card-alt {
+  background: rgba(16, 97, 136, 0.08);
+  backdrop-filter: blur(15px);
+  border-radius: 12px;
+  padding: 14px;
+  margin-bottom: 12px;
+  border-left: 3px solid #106188;
+}
+
+.user-card {
+  background: rgba(255, 159, 67, 0.1);
+  backdrop-filter: blur(15px);
+  border-radius: 12px;
+  padding: 16px;
+  margin-bottom: 12px;
+}
+
+/* 标签样式 */
+.tag {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 16px;
+  font-size: 11px;
+  margin: 3px;
+  font-weight: 300;
+}
+
+/* 分隔线 */
+.divider {
+  height: 1px;
+  background: linear-gradient(to right, transparent, #FF9F43, transparent);
+  margin: 20px 0;
+  border-radius: 1px;
+}
+
+/* 内容容器 */
+.content-container {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  min-height: 100%;
+  padding: 16px 16px 100px 16px;
+}
+
+/* 最后一段话样式 */
+.final-text {
+  font-size: 16px !important;
+  line-height: 2 !important;
+}
+
+/* 页面标题样式 */
+.page-title {
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+}
+
+.page-title h1 {
+  font-size: 24px !important;
+  letter-spacing: 0.06em;
+  margin-bottom: 8px !important;
+}
+
+/* 滚动提示 */
+.scroll-hint {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  z-index: 20;
+  opacity: 0.6;
+  animation: bounce-gentle 2s ease-in-out infinite;
+}
+
+.scroll-hint i {
+  font-size: 24px;
+  color: #106188;
+}
+
+.scroll-hint span {
+  font-size: 12px;
+  color: #106188;
+  opacity: 0.7;
+}
+
+/* 特殊页面：封面和总结使用100vh高度 */
+.full-height-section {
+  height: 100vh;
+  min-height: 100vh;
+  max-height: 100vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* 响应式调整 */
+@media (min-width: 768px) {
+  .content-container {
+    padding: 40px 32px 120px 32px;
+  }
+  
+  .nav-dots {
+    right: 20px;
+  }
+  
+  .music-control {
+    bottom: 30px;
+    right: 30px;
+  }
+  
+  .feature-card {
+    padding: 18px;
+    margin-bottom: 14px;
+    border-radius: 16px;
+  }
+  
+  .feature-card-alt {
+    padding: 18px;
+    margin-bottom: 14px;
+    border-radius: 16px;
+  }
+  
+  .user-card {
+    padding: 22px;
+    margin-bottom: 14px;
+    border-radius: 16px;
+  }
+  
+  .tag {
+    padding: 6px 12px;
+    font-size: 12px;
+    margin: 4px;
+  }
+  
+  .page-title h1 {
+    font-size: 28px !important;
+  }
+}
+
+/* 竖屏手机优化 */
+@media (max-height: 700px) {
+  .content-container {
+    padding: 12px 12px 80px 12px;
+  }
+  
+  .page-title {
+    margin-bottom: 12px;
+    padding-bottom: 8px;
+  }
+  
+  .page-title h1 {
+    font-size: 20px !important;
+    margin-bottom: 6px !important;
+  }
+  
+  .feature-card {
+    padding: 10px;
+    margin-bottom: 8px;
+    border-radius: 10px;
+  }
+  
+  .feature-card-alt {
+    padding: 10px;
+    margin-bottom: 8px;
+    border-radius: 10px;
+  }
+  
+  .user-card {
+    padding: 12px;
+    margin-bottom: 8px;
+    border-radius: 10px;
+  }
+}
+</style>
+</head>
+<body>
+
+<!-- 引导遮罩 -->
+<div id="introOverlay" style="
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #F7F3E6 0%, #F0F4E8 50%, #E8F4F0 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 999999;
+  padding: 20px;
+  box-sizing: border-box;
+  scroll-snap-align: none;
+">
+  <div style="text-align: center;
+max-width: 90vw;">
+    <!-- 中心圆形装饰 -->
+    <div style="width: 120px;
+height: 120px;
+margin: 0 auto 25px;
+border-radius: 50%;
+background: radial-gradient(circle, rgba(255, 159, 67, 0.2) 0%, rgba(16, 97, 136, 0.1) 100%);
+display: flex;
+align-items: center;
+justify-content: center;
+box-shadow: 0 0 60px rgba(255, 159, 67, 0.35), 0 0 90px rgba(255, 159, 67, 0.2);
+-webkit-box-shadow: 0 0 60px rgba(255, 159, 67, 0.35), 0 0 90px rgba(255, 159, 67, 0.2);">
+      <span style="font-size: 60px;">🎵</span>
+    </div>
+    
+    <!-- 标题 -->
+    <h1 style="font-size: 36px;
+color: #106188;
+margin-bottom: 10px;
+font-weight: 600;
+letter-spacing: 0.08em;
+font-family: "Noto Serif SC", serif;
+line-height: 1.3;
+padding: 0 10px;">灵波和鸣</h1>
+    
+    <!-- 英文名 -->
+    <p style="font-size: 14px;
+color: #106188;
+margin-bottom: 10px;
+opacity: 0.6;
+letter-spacing: 0.15em;
+font-family: "Spectral", serif;
+padding: 0 10px;">Synergaharmonix</p>
+    
+    <!-- 副标题 -->
+    <p style="font-size: 18px;
+color: #106188;
+margin-bottom: 40px;
+opacity: 0.8;
+letter-spacing: 0.12em;
+font-family: "Noto Serif SC", serif;
+padding: 0 10px;
+line-height: 1.5;">灵波轻起——万物和鸣</p>
+    
+    <!-- 开始按钮 -->
+    <button id="startBtn" style="
+      background: linear-gradient(135deg, #FF9F43 0%, #FF7B54 100%);
+      border: none;
+      padding: 16px 50px;
+      border-radius: 45px;
+      font-size: 18px;
+      color: white;
+      cursor: pointer;
+      font-weight: 600;
+      box-shadow: 0 8px 30px rgba(255, 159, 67, 0.45);
+      transition: all 0.3s ease;
+      letter-spacing: 0.08em;
+      font-family: "Noto Serif SC", serif;
+      -webkit-box-shadow: 0 8px 30px rgba(255, 159, 67, 0.45);
+    " onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 12px 40px rgba(255, 159, 67, 0.55)';" 
+       onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 8px 30px rgba(255, 159, 67, 0.45)';">
+      ✨ 点击开始
+    </button>
+    
+    <!-- 底部提示 -->
+    <p style="font-size: 12px;
+color: #106188;
+margin-top: 25px;
+opacity: 0.5;
+letter-spacing: 0.05em;
+font-family: "Noto Serif SC", serif;
+padding: 0 20px;">
+      滑动或点击导航点切换页面
+    </p>
+  </div>
+  
+  <!-- 背景装饰圆 -->
+  <div style="position: absolute;
+top: 8%;
+left: 8%;
+width: 150px;
+height: 150px;
+background: radial-gradient(circle, rgba(255, 159, 67, 0.15) 0%, transparent 70%);
+border-radius: 50%;
+filter: blur(30px);
+animation: pulse-overlay 5s ease-in-out infinite;"></div>
+  <div style="position: absolute;
+bottom: 12%;
+right: 10%;
+width: 130px;
+height: 130px;
+background: radial-gradient(circle, rgba(16, 97, 136, 0.12) 0%, transparent 70%);
+border-radius: 50%;
+filter: blur(25px);
+animation: pulse-overlay 5s ease-in-out infinite 2s;"></div>
+</div>
+
+<!-- 导航点 -->
+<div class="nav-dots" id="navDots" style="display: none;">
+  <div class="nav-dot active" data-section="0"></div>
+  <div class="nav-dot" data-section="1"></div>
+  <div class="nav-dot" data-section="2"></div>
+  <div class="nav-dot" data-section="3"></div>
+  <div class="nav-dot" data-section="4"></div>
+  <div class="nav-dot" data-section="5"></div>
+  <div class="nav-dot" data-section="6"></div>
+  <div class="nav-dot" data-section="7"></div>
+  <div class="nav-dot" data-section="8"></div>
+</div>
+
+<!-- 第1部分：封面 -->
+<div class="section full-height-section" id="section0" style="background: linear-gradient(135deg, #F7F3E6 0%, #F0F4E8 40%, #E8F4F0 100%);">
+<div class="absolute inset-0 z-0">
+<div class="absolute breathe-glow" style="top: 8%;
+left: 50%;
+transform: translatex(-50%);
+width: 250px;
+height: 250px;
+background: radial-gradient(circle, rgba(255, 159, 67, 0.25) 0%, transparent 70%);
+border-radius: 50%;
+filter: blur(30px);"></div>
+<div class="absolute breathe-glow" style="bottom: 25%;
+right: 5%;
+width: 200px;
+height: 200px;
+background: radial-gradient(circle, rgba(16, 97, 136, 0.2) 0%, transparent 70%);
+border-radius: 50%;
+filter: blur(35px);
+animation-delay: 2s;"></div>
+<div class="absolute breathe-glow" style="top: 45%;
+left: 3%;
+width: 180px;
+height: 180px;
+background: radial-gradient(circle, rgba(255, 159, 67, 0.2) 0%, transparent 70%);
+border-radius: 50%;
+filter: blur(30px);
+animation-delay: 3s;"></div>
+</div>
+
+<div class="absolute inset-0 z-0 opacity-20">
+<svg class="absolute wave-flow-1" style="top: 12%;
+left: -20%;
+width: 140%;
+height: 120px" viewBox="0 0 1400 200" preserveAspectRatio="none">
+<path d="M0,100 Q350,30 700,100 T1400,100" fill="none" stroke="url(#gradient1)" stroke-width="2"/>
+<defs>
+<linearGradient id="gradient1" x1="0%" y1="0%" x2="100%" y2="0%">
+<stop offset="0%" style="stop-color: #FF9F43;
+stop-opacity: 0"/>
+<stop offset="50%" style="stop-color: #FF9F43;
+stop-opacity: 0.6"/>
+<stop offset="100%" style="stop-color: #FF9F43;
+stop-opacity: 0"/>
+</linearGradient>
+</defs>
+</svg>
+<svg class="absolute wave-flow-2" style="bottom: 30%;
+left: -30%;
+width: 160%;
+height: 100px" viewBox="0 0 1600 180" preserveAspectRatio="none">
+<path d="M0,90 Q400,40 800,90 T1600,90" fill="none" stroke="url(#gradient2)" stroke-width="2"/>
+<defs>
+<linearGradient id="gradient2" x1="0%" y1="0%" x2="100%" y2="0%">
+<stop offset="0%" style="stop-color: #106188;
+stop-opacity: 0"/>
+<stop offset="50%" style="stop-color: #106188;
+stop-opacity: 0.5"/>
+<stop offset="100%" style="stop-color: #106188;
+stop-opacity: 0"/>
+</linearGradient>
+</defs>
+</svg>
+</div>
+
+<div class="content-container">
+<div class="text-center mb-6">
+<div class="inline-block px-3 py-2 rounded-full glow-effect" style="background: rgba(255, 159, 67, 0.15);
+backdrop-filter: blur(10px);">
+<span class="text-xs font-light tracking-wider" style="color: #106188">音乐疗愈小程序</span>
+</div>
+</div>
+
+<h1 class="title-font font-bold mb-2 text-center" style="font-size: 32px;
+line-height: 1.2;
+color: #106188;
+letter-spacing: 0.02em;">
+灵波和鸣
+</h1>
+<h2 class="title-font font-light mb-4 text-center" style="font-size: 16px;
+letter-spacing: 0.08em;
+color: #106188;
+opacity: 0.75;">
+Synergaharmonix
+</h2>
+
+<div class="mb-6 text-center px-4">
+<p class="title-font font-light mb-2" style="font-size: 18px;
+letter-spacing: 0.12em;
+color: #106188;
+opacity: 0.9;
+line-height: 1.6;">
+灵波轻起，万物和鸣
+</p>
+<p class="text-sm leading-relaxed" style="color: #106188;
+opacity: 0.7;
+line-height: 1.8;">
+灵性之波，彼此和鸣<br/>
+在温柔声波中归于和谐、抚平情绪、唤醒内在宁静
+</p>
+</div>
+
+<div class="flex flex-col gap-3 px-4">
+<div class="flex items-center justify-center gap-2 px-4 py-3 rounded-xl" style="background: rgba(255, 159, 67, 0.15);
+backdrop-filter: blur(10px);">
+<i class="material-icons" style="color: #FF9F43;
+font-size: 22px">graphic_eq</i>
+<span class="font-light text-sm" style="color: #106188">同频共振</span>
+</div>
+<div class="flex items-center justify-center gap-2 px-4 py-3 rounded-xl" style="background: rgba(255, 159, 67, 0.15);
+backdrop-filter: blur(10px);">
+<i class="material-icons" style="color: #FF9F43;
+font-size: 22px">spa</i>
+<span class="font-light text-sm" style="color: #106188">身心疗愈</span>
+</div>
+</div>
+
+<div class="flex items-center justify-center relative py-6">
+<div class="absolute ripple-expand" style="width: 180px;
+height: 180px;
+border: 3px solid rgba(255, 159, 67, 0.5);
+border-radius: 50%;"></div>
+<div class="absolute ripple-expand ripple-delay-1" style="width: 180px;
+height: 180px;
+border: 3px solid rgba(16, 97, 136, 0.4);
+border-radius: 50%;"></div>
+<div class="absolute ripple-expand ripple-delay-2" style="width: 180px;
+height: 180px;
+border: 3px solid rgba(255, 159, 67, 0.45);
+border-radius: 50%;"></div>
+<div class="absolute ripple-expand ripple-delay-3" style="width: 180px;
+height: 180px;
+border: 3px solid rgba(16, 97, 136, 0.35);
+border-radius: 50%;"></div>
+
+<div class="relative w-40 h-40 rounded-full flex items-center justify-center glow-effect" style="background: radial-gradient(circle, rgba(255, 159, 67, 0.2) 0%, rgba(16, 97, 136, 0.1) 100%);
+backdrop-filter: blur(20px);">
+<i class="material-icons" style="font-size: 60px;
+color: #FF9F43;
+opacity: 0.8">graphic_eq</i>
+</div>
+</div>
+</div>
+
+<!-- 滚动提示 -->
+<div class="scroll-hint">
+  <i class="material-icons">keyboard_arrow_down</i>
+  <span>滑动查看更多</span>
+</div>
+</div>
+
+<!-- 第2部分：产品概述 -->
+<div class="section" id="section1" style="background: linear-gradient(135deg, #F7F3E6 0%, #F0F4E8 40%, #E8F4F0 100%);">
+<div class="absolute inset-0 z-0">
+<div class="absolute breathe-glow" style="top: 15%;
+left: 10%;
+width: 280px;
+height: 280px;
+background: radial-gradient(circle, rgba(231, 241, 119, 0.25) 0%, transparent 70%);
+border-radius: 50%;
+filter: blur(40px);"></div>
+<div class="absolute breathe-glow" style="bottom: 15%;
+right: 15%;
+width: 220px;
+height: 220px;
+background: radial-gradient(circle, rgba(16, 97, 136, 0.2) 0%, transparent 70%);
+border-radius: 50%;
+filter: blur(35px);
+animation-delay: 2s;"></div>
+</div>
+
+<div class="content-container">
+<div class="page-title text-center">
+<h1 class="title-font font-light" style="font-size: 24px;
+letter-spacing: 0.08em;
+color: #106188;
+margin-bottom: 6px;">
+产品概述
+</h1>
+<div class="w-16 h-0.5 rounded-full mx-auto" style="background: linear-gradient(to right, #E7F177, transparent);"></div>
+</div>
+
+<div class="feature-card float-up relative">
+<div class="flex items-center gap-2 mb-3">
+<i class="material-icons" style="color: #FF9F43;
+font-size: 30px">graphic_eq</i>
+<h2 class="title-font font-semibold" style="font-size: 20px;
+color: #106188;
+letter-spacing: 0.05em;">同频共振</h2>
+</div>
+<p class="text-sm leading-relaxed font-light" style="color: #106188;
+opacity: 0.85;">
+身心频率与疗愈音乐完美契合<br/>
+在声波中找到平衡与和谐
+</p>
+</div>
+
+<div class="grid grid-cols-2 gap-2 mb-4">
+<div class="feature-card-alt">
+<i class="material-icons mb-1" style="color: #106188;
+font-size: 24px">spa</i>
+<p class="font-medium text-sm mb-1" style="color: #106188">灵性频率疗愈</p>
+<p class="text-xs font-light" style="color: #106188;
+opacity: 0.65">正念冥想融合</p>
+</div>
+<div class="feature-card-alt">
+<i class="material-icons mb-1" style="color: #106188;
+font-size: 24px">self_improvement</i>
+<p class="font-medium text-sm mb-1" style="color: #106188">身心平衡伴侣</p>
+<p class="text-xs font-light" style="color: #106188;
+opacity: 0.65">全息沉浸体验</p>
+</div>
+</div>
+
+<div class="feature-card-alt" style="animation-delay: 0.5s;">
+<p class="text-sm leading-relaxed mb-3 font-light" style="color: #106188;
+opacity: 0.9;">
+灵波和鸣是一款将<span class="font-semibold" style="color: #0A5A5A">灵性频率疗愈、正念冥想与前沿人机交互</span>深度融合的智能小程序。
+</p>
+<p class="text-sm leading-relaxed mb-3 font-light" style="color: #106188;
+opacity: 0.9;">
+它以<span class="font-semibold" style="color: #0A5A5A">"同频共振"</span>为核心哲学，不仅通过场景与情绪推荐个性化疗愈音乐，更让音乐与<span class="font-semibold" style="color: #0A5A5A">身体、与他人、与内心</span>实时对话。
+</p>
+<p class="text-sm leading-relaxed font-light" style="color: #106188;
+opacity: 0.9;">
+从体感振动到社交共鸣，从呼吸成音到实体留声，致力于成为用户<span class="font-semibold" style="color: #0A5A5A">身心平衡的终身伴侣</span>。
+</p>
+</div>
+
+<div class="flex gap-2 flex-wrap mt-4">
+<div class="flex-1 min-w-[70px] feature-card text-center py-3">
+<i class="material-icons mb-1" style="color: #106188;
+font-size: 20px">graphic_eq</i>
+<p class="text-xs font-medium" style="color: #106188">声波疗愈</p>
+</div>
+<div class="flex-1 min-w-[70px] feature-card text-center py-3">
+<i class="material-icons mb-1" style="color: #106188;
+font-size: 20px">favorite</i>
+<p class="text-xs font-medium" style="color: #106188">情绪平衡</p>
+</div>
+<div class="flex-1 min-w-[70px] feature-card text-center py-3">
+<i class="material-icons mb-1" style="color: #106188;
+font-size: 20px">people</i>
+<p class="text-xs font-medium" style="color: #106188">社交共鸣</p>
+</div>
+<div class="flex-1 min-w-[70px] feature-card text-center py-3">
+<i class="material-icons mb-1" style="color: #106188;
+font-size: 20px">album</i>
+<p class="text-xs font-medium" style="color: #106188">实体留声</p>
+</div>
+</div>
+</div>
+</div>
+
+<!-- 第3部分：目标用户 -->
+<div class="section" id="section2" style="background: linear-gradient(135deg, #F7F3E6 0%, #F0F4E8 40%, #E8F4F0 100%);">
+<div class="absolute inset-0 z-0">
+<div class="absolute breathe-glow" style="top: 10%;
+left: 15%;
+width: 250px;
+height: 250px;
+background: radial-gradient(circle, rgba(255, 159, 67, 0.25) 0%, transparent 70%);
+border-radius: 50%;
+filter: blur(40px);"></div>
+<div class="absolute breathe-glow" style="bottom: 20%;
+right: 20%;
+width: 220px;
+height: 220px;
+background: radial-gradient(circle, rgba(16, 97, 136, 0.2) 0%, transparent 70%);
+border-radius: 50%;
+filter: blur(35px);
+animation-delay: 2s;"></div>
+</div>
+
+<div class="content-container">
+<div class="page-title text-center">
+<h1 class="title-font font-light" style="font-size: 24px;
+letter-spacing: 0.08em;
+color: #106188;
+margin-bottom: 6px;">
+目标用户
+</h1>
+<div class="w-16 h-0.5 rounded-full mx-auto" style="background: linear-gradient(to right, #FF9F43, transparent);"></div>
+</div>
+
+<div class="space-y-4">
+<div class="user-card float-up">
+<div class="w-10 h-10 rounded-xl flex items-center justify-center mb-3" style="background: rgba(255, 159, 67, 0.2);">
+<i class="material-icons" style="color: #106188;
+font-size: 24px">self_improvement</i>
+</div>
+<h3 class="title-font font-semibold mb-2" style="font-size: 16px;
+color: #106188">冥想初学者与资深修行者</h3>
+<p class="text-sm leading-relaxed font-light" style="color: #106188;
+opacity: 0.75">寻求身心平衡与内在宁静的修行之路</p>
+</div>
+
+<div class="user-card-alt float-up" style="background: rgba(16, 97, 136, 0.06);
+border-left: 3px solid #106188;
+animation-delay: 0.5s;
+padding: 16px;">
+<div class="flex gap-3">
+<div class="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0" style="background: rgba(16, 97, 136, 0.1);">
+<i class="material-icons" style="color: #106188;
+font-size: 24px">cityscape</i>
+</div>
+<div>
+<h3 class="title-font font-semibold mb-2" style="font-size: 16px;
+color: #106188">受焦虑、失眠、注意力困扰的都市人群</h3>
+<p class="text-sm leading-relaxed font-light" style="color: #106188;
+opacity: 0.75">快节奏生活中寻找片刻安宁与疗愈</p>
+</div>
+</div>
+</div>
+
+<div class="user-card float-up" style="animation-delay: 1s;">
+<div class="w-10 h-10 rounded-xl flex items-center justify-center mb-3" style="background: rgba(255, 159, 67, 0.2);">
+<i class="material-icons" style="color: #106188;
+font-size: 24px">explore</i>
+</div>
+<h3 class="title-font font-semibold mb-2" style="font-size: 16px;
+color: #106188">声音疗愈与灵性成长探索者</h3>
+<p class="text-sm leading-relaxed font-light" style="color: #106188;
+opacity: 0.75">对频率能量、声音疗愈有深度兴趣</p>
+</div>
+
+<div class="user-card-alt float-up" style="background: rgba(16, 97, 136, 0.06);
+border-left: 3px solid #106188;
+animation-delay: 1.5s;
+padding: 16px;">
+<div class="flex gap-3">
+<div class="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0" style="background: rgba(16, 97, 136, 0.1);">
+<i class="material-icons" style="color: #106188;
+font-size: 24px">devices</i>
+</div>
+<div>
+<h3 class="title-font font-semibold mb-2" style="font-size: 16px;
+color: #106188">科技与身心结合的潮流用户</h3>
+<p class="text-sm leading-relaxed font-light" style="color: #106188;
+opacity: 0.75">追求新奇交互体验，探索身心科技融合</p>
+</div>
+</div>
+</div>
+
+<div class="user-card float-up" style="animation-delay: 2s;">
+<div class="flex gap-3">
+<div class="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0" style="background: rgba(255, 159, 67, 0.2);">
+<i class="material-icons" style="color: #106188;
+font-size: 24px">favorite</i>
+</div>
+<div>
+<h3 class="title-font font-semibold mb-2" style="font-size: 16px;
+color: #106188">希望与他人建立深度连接的情感需求者</h3>
+<p class="text-sm leading-relaxed font-light" style="color: #106188;
+opacity: 0.75">寻找同频共鸣，渴望在疗愈中建立深度情感连接</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<!-- 第4部分：核心功能模块一 -->
+<div class="section" id="section3" style="background: linear-gradient(135deg, #F7F3E6 0%, #F0F4E8 40%, #E8F4F0 100%);">
+<div class="absolute inset-0 z-0">
+<div class="absolute breathe-glow" style="top: 15%;
+left: 20%;
+width: 280px;
+height: 280px;
+background: radial-gradient(circle, rgba(255, 159, 67, 0.25) 0%, transparent 70%);
+border-radius: 50%;
+filter: blur(40px);"></div>
+<div class="absolute breathe-glow" style="bottom: 20%;
+right: 15%;
+width: 220px;
+height: 220px;
+background: radial-gradient(circle, rgba(16, 97, 136, 0.2) 0%, transparent 70%);
+border-radius: 50%;
+filter: blur(35px);
+animation-delay: 2s;"></div>
+</div>
+
+<div class="content-container">
+<div class="page-title text-center">
+<h1 class="title-font font-light" style="font-size: 24px;
+letter-spacing: 0.08em;
+color: #106188;
+margin-bottom: 6px;">
+核心功能模块（一）
+</h1>
+<div class="w-16 h-0.5 rounded-full mx-auto" style="background: linear-gradient(to right, #FF9F43, transparent);"></div>
+</div>
+
+<div class="feature-card float-up relative">
+<div class="flex items-center gap-2 mb-3">
+<i class="material-icons" style="color: #FF9F43;
+font-size: 28px">tune</i>
+<h2 class="title-font font-semibold" style="font-size: 18px;
+color: #106188;
+letter-spacing: 0.05em;">场景化智能推荐</h2>
+</div>
+
+<div class="space-y-4">
+<div>
+<p class="font-medium text-sm mb-2 flex items-center gap-2" style="color: #106188">
+<i class="material-icons" style="font-size: 16px;
+color: #FF9F43">location_on</i>
+场景选择
+</p>
+<div class="flex flex-wrap gap-1">
+<span class="tag" style="background: rgba(16, 97, 136, 0.08);
+color: #106188">午休</span>
+<span class="tag" style="background: rgba(16, 97, 136, 0.08);
+color: #106188">睡前</span>
+<span class="tag" style="background: rgba(16, 97, 136, 0.08);
+color: #106188">打坐</span>
+<span class="tag" style="background: rgba(16, 97, 136, 0.08);
+color: #106188">通勤</span>
+<span class="tag" style="background: rgba(16, 97, 136, 0.08);
+color: #106188">工作</span>
+<span class="tag" style="background: rgba(16, 97, 136, 0.08);
+color: #106188">社交</span>
+</div>
+</div>
+
+<div>
+<p class="font-medium text-sm mb-2 flex items-center gap-2" style="color: #106188">
+<i class="material-icons" style="font-size: 16px;
+color: #FF9F43">mood</i>
+情绪标签
+</p>
+<div class="flex flex-wrap gap-1">
+<span class="tag" style="background: rgba(16, 97, 136, 0.08);
+color: #106188">缓解焦虑</span>
+<span class="tag" style="background: rgba(16, 97, 136, 0.08);
+color: #106188">提升专注</span>
+<span class="tag" style="background: rgba(16, 97, 136, 0.08);
+color: #106188">释放压力</span>
+<span class="tag" style="background: rgba(16, 97, 136, 0.08);
+color: #106188">提振能量</span>
+<span class="tag" style="background: rgba(16, 97, 136, 0.08);
+color: #106188">渴望连接</span>
+</div>
+</div>
+
+<div class="pt-3 space-y-3">
+<div class="flex items-start gap-2 p-3 rounded-lg" style="background: rgba(255, 255, 255, 0.2);">
+<i class="material-icons flex-shrink-0" style="color: #106188;
+font-size: 18px">queue_music</i>
+<div>
+<p class="font-medium" style="font-size: 14px;
+color: #106188">智能歌单</p>
+<p class="text-xs font-light" style="color: #106188;
+opacity: 0.7">基于场景+情绪双维度，生成精准疗愈歌单</p>
+</div>
+</div>
+<div class="flex items-start gap-2 p-3 rounded-lg" style="background: rgba(255, 255, 255, 0.2);">
+<i class="material-icons flex-shrink-0" style="color: #106188;
+font-size: 18px">wb_sunny</i>
+<div>
+<p class="font-medium" style="font-size: 14px;
+color: #106188">今日能量推送</p>
+<p class="text-xs font-light" style="color: #106188;
+opacity: 0.7">生命数字算法计算每日能量指数，推送匹配音乐</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="feature-card-alt float-up" style="animation-delay: 0.5s;">
+<div class="flex items-center gap-2 mb-3">
+<i class="material-icons" style="color: #FF9F43;
+font-size: 28px">graphic_eq</i>
+<h2 class="title-font font-semibold" style="font-size: 18px;
+color: #106188;
+letter-spacing: 0.05em;">频率疗愈中心</h2>
+</div>
+
+<div class="space-y-3">
+<div class="p-3 rounded-lg" style="background: rgba(255, 159, 67, 0.15);
+border-left: 3px solid #FF9F43;">
+<div class="flex items-center gap-2 mb-1">
+<i class="material-icons" style="color: #106188;
+font-size: 18px">library_music</i>
+<h3 class="font-semibold" style="font-size: 14px;
+color: #106188">索尔菲吉频率库</h3>
+</div>
+<p class="text-xs font-light" style="color: #106188;
+opacity: 0.75">全系列单频音轨，附带功效说明与脉轮对应</p>
+</div>
+
+<div class="p-3 rounded-lg" style="background: rgba(255, 159, 67, 0.15);
+border-left: 3px solid #FF9F43;">
+<div class="flex items-center gap-2 mb-1">
+<i class="material-icons" style="color: #106188;
+font-size: 18px">equalizer</i>
+<h3 class="font-semibold" style="font-size: 14px;
+color: #106188">双耳节拍生成器</h3>
+</div>
+<p class="text-xs font-light" style="color: #106188;
+opacity: 0.75">自定义脑波状态（δ/θ/α/β），实时合成</p>
+</div>
+
+<div class="p-3 rounded-lg" style="background: rgba(255, 159, 67, 0.15);
+border-left: 3px solid #FF9F43;">
+<div class="flex items-center gap-2 mb-1">
+<i class="material-icons" style="color: #106188;
+font-size: 18px">tune</i>
+<h3 class="font-semibold" style="font-size: 14px;
+color: #106188">432Hz万能转换器</h3>
+</div>
+<p class="text-xs font-light" style="color: #106188;
+opacity: 0.75">一键转换为432Hz或任意索尔菲吉频率</p>
+</div>
+
+<div class="p-3 rounded-lg" style="background: rgba(255, 159, 67, 0.15);
+border-left: 3px solid #FF9F43;">
+<div class="flex items-center gap-2 mb-1">
+<i class="material-icons" style="color: #106188;
+font-size: 18px">radar</i>
+<h3 class="font-semibold" style="font-size: 14px;
+color: #106188">脉轮频率分析仪</h3>
+</div>
+<p class="text-xs font-light" style="color: #106188;
+opacity: 0.75">实时检测音乐频率，映射七大脉轮活跃度</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<!-- 第5部分：核心功能模块二 -->
+<div class="section" id="section4" style="background: linear-gradient(135deg, #F7F3E6 0%, #F0F4E8 40%, #E8F4F0 100%);">
+<div class="absolute inset-0 z-0">
+<div class="absolute breathe-glow" style="top: 20%;
+left: 25%;
+width: 280px;
+height: 280px;
+background: radial-gradient(circle, rgba(255, 159, 67, 0.25) 0%, transparent 70%);
+border-radius: 50%;
+filter: blur(40px);"></div>
+<div class="absolute breathe-glow" style="bottom: 25%;
+right: 20%;
+width: 220px;
+height: 220px;
+background: radial-gradient(circle, rgba(16, 97, 136, 0.2) 0%, transparent 70%);
+border-radius: 50%;
+filter: blur(35px);
+animation-delay: 2s;"></div>
+</div>
+
+<div class="content-container">
+<div class="page-title text-center">
+<h1 class="title-font font-light" style="font-size: 24px;
+letter-spacing: 0.08em;
+color: #106188;
+margin-bottom: 6px;">
+核心功能模块（二）
+</h1>
+<div class="w-16 h-0.5 rounded-full mx-auto" style="background: linear-gradient(to right, #FF9F43, transparent);"></div>
+</div>
+
+<div class="feature-card float-up relative">
+<div class="flex items-center gap-2 mb-3">
+<i class="material-icons" style="color: #FF9F43;
+font-size: 28px">self_improvement</i>
+<h2 class="title-font font-semibold" style="font-size: 18px;
+color: #106188;
+letter-spacing: 0.05em;">身心反馈·实时交互</h2>
+</div>
+
+<div class="space-y-4">
+<div class="p-4 rounded-lg" style="background: rgba(255, 255, 255, 0.25);
+border-left: 3px solid #FF9F43;">
+<div class="flex items-center gap-2 mb-2">
+<i class="material-icons" style="color: #106188;
+font-size: 22px">mic</i>
+<h3 class="font-semibold" style="font-size: 16px;
+color: #106188">呼吸成音</h3>
+</div>
+<p class="text-sm font-light mb-2" style="color: #106188;
+opacity: 0.85">实时采集呼吸节奏与深度，转化为疗愈音乐</p>
+<div class="flex items-center gap-2 text-xs font-light" style="color: #106188;
+opacity: 0.7">
+<i class="material-icons" style="font-size: 12px">check_circle</i>
+<span>呼吸深长则音乐舒缓，短促则引导平缓</span>
+</div>
+</div>
+
+<div class="p-4 rounded-lg" style="background: rgba(255, 255, 255, 0.25);
+border-left: 3px solid #FF9F43;">
+<div class="flex items-center gap-2 mb-2">
+<i class="material-icons" style="color: #106188;
+font-size: 22px">sensors</i>
+<h3 class="font-semibold" style="font-size: 16px;
+color: #106188">体感硬件联动</h3>
+</div>
+<p class="text-sm font-light mb-2" style="color: #106188;
+opacity: 0.85">连接智能冥想垫、触感音乐披肩等蓝牙硬件</p>
+<div class="flex items-center gap-2 text-xs font-light" style="color: #106188;
+opacity: 0.7">
+<i class="material-icons" style="font-size: 12px">check_circle</i>
+<span>硬件随音频频率产生微妙物理振动</span>
+</div>
+<div class="flex items-center gap-2 text-xs font-light" style="color: #106188;
+opacity: 0.7">
+<i class="material-icons" style="font-size: 12px">check_circle</i>
+<span>将听觉转化为触觉沉浸体验</span>
+</div>
+</div>
+</div>
+</div>
+
+<div class="feature-card-alt float-up" style="animation-delay: 0.5s;">
+<div class="flex items-center gap-2 mb-3">
+<i class="material-icons" style="color: #FF9F43;
+font-size: 28px">groups</i>
+<h2 class="title-font font-semibold" style="font-size: 18px;
+color: #106188;
+letter-spacing: 0.05em;">同频共振·社交连接</h2>
+</div>
+
+<div class="space-y-3">
+<div class="p-3 rounded-lg" style="background: rgba(255, 159, 67, 0.15);
+border-left: 3px solid #FF9F43;">
+<div class="flex items-center gap-2 mb-1">
+<i class="material-icons" style="color: #106188;
+font-size: 18px">connect_without_contact</i>
+<h3 class="font-semibold" style="font-size: 14px;
+color: #106188">双人/多人远程冥想</h3>
+</div>
+<p class="text-sm font-light mb-1" style="color: #106188;
+opacity: 0.85">邀请好友或匹配陌生人，进入同一冥想空间</p>
+<div class="flex items-center gap-2 text-xs font-light" style="color: #106188;
+opacity: 0.7">
+<i class="material-icons" style="font-size: 12px">check_circle</i>
+<span>数据转化为环境音效，体验情绪同步</span>
+</div>
+</div>
+
+<div class="p-3 rounded-lg" style="background: rgba(255, 159, 67, 0.15);
+border-left: 3px solid #FF9F43;">
+<div class="flex items-center gap-2 mb-1">
+<i class="material-icons" style="color: #106188;
+font-size: 18px">favorite</i>
+<h3 class="font-semibold" style="font-size: 14px;
+color: #106188">音愈匹配</h3>
+</div>
+<p class="text-sm font-light mb-1" style="color: #106188;
+opacity: 0.85">每日推荐一位"今日音愈伙伴"</p>
+<div class="flex items-center gap-2 text-xs font-light" style="color: #106188;
+opacity: 0.7">
+<i class="material-icons" style="font-size: 12px">check_circle</i>
+<span>匿名共听音乐，交换声音疗愈片段</span>
+</div>
+</div>
+
+<div class="p-3 rounded-lg" style="background: rgba(255, 159, 67, 0.15);
+border-left: 3px solid #FF9F43;">
+<div class="flex items-center gap-2 mb-1">
+<i class="material-icons" style="color: #106188;
+font-size: 18px">emoji_events</i>
+<h3 class="font-semibold" style="font-size: 14px;
+color: #106188">共时性冥想挑战</h3>
+</div>
+<p class="text-sm font-light" style="color: #106188;
+opacity: 0.85">每周发起社群共修主题，累积集体冥想时长，解锁奖励</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<!-- 第6部分：核心功能模块三 -->
+<div class="section" id="section5" style="background: linear-gradient(135deg, #F7F3E6 0%, #F0F4E8 40%, #E8F4F0 100%);">
+<div class="absolute inset-0 z-0">
+<div class="absolute breathe-glow" style="top: 10%;
+left: 15%;
+width: 280px;
+height: 280px;
+background: radial-gradient(circle, rgba(255, 159, 67, 0.25) 0%, transparent 70%);
+border-radius: 50%;
+filter: blur(40px);"></div>
+<div class="absolute breathe-glow" style="bottom: 15%;
+right: 20%;
+width: 240px;
+height: 240px;
+background: radial-gradient(circle, rgba(16, 97, 136, 0.2) 0%, transparent 70%);
+border-radius: 50%;
+filter: blur(35px);
+animation-delay: 2s;"></div>
+</div>
+
+<div class="content-container">
+<div class="page-title text-center">
+<h1 class="title-font font-light" style="font-size: 24px;
+letter-spacing: 0.08em;
+color: #106188;
+margin-bottom: 6px;">
+核心功能模块（三）
+</h1>
+<div class="w-16 h-0.5 rounded-full mx-auto" style="background: linear-gradient(to right, #FF9F43, transparent);"></div>
+</div>
+
+<div class="space-y-4">
+<div class="feature-card float-up">
+<div class="flex items-center gap-2 mb-3">
+<i class="material-icons" style="color: #FF9F43;
+font-size: 24px">spa</i>
+<h2 class="title-font font-semibold" style="font-size: 17px;
+color: #106188;
+letter-spacing: 0.05em;">正念冥想与工具</h2>
+</div>
+
+<div class="space-y-3">
+<div class="flex items-start gap-2">
+<i class="material-icons flex-shrink-0" style="color: #106188;
+font-size: 18px">library_books</i>
+<div>
+<p class="font-medium text-xs mb-1" style="color: #106188">冥想引导库</p>
+<p class="text-xs font-light" style="color: #106188;
+opacity: 0.7">身体扫描、慈心禅等引导音频</p>
+</div>
+</div>
+
+<div class="flex items-start gap-2">
+<i class="material-icons flex-shrink-0" style="color: #106188;
+font-size: 18px">timer</i>
+<div>
+<p class="font-medium text-xs mb-1" style="color: #106188">智能打坐计时器</p>
+<p class="text-xs font-light" style="color: #106188;
+opacity: 0.7">间歇钟声提醒，记录冥想数据</p>
+</div>
+</div>
+
+<div class="flex items-start gap-2">
+<i class="material-icons flex-shrink-0" style="color: #106188;
+font-size: 18px">settings_input_component</i>
+<div>
+<p class="font-medium text-xs mb-1" style="color: #106188">体感联动设置</p>
+<p class="text-xs font-light" style="color: #106188;
+opacity: 0.7">开启体感反馈，增强沉浸感</p>
+</div>
+</div>
+
+<div class="flex items-start gap-2">
+<i class="material-icons flex-shrink-0" style="color: #106188;
+font-size: 18px">share</i>
+<div>
+<p class="font-medium text-xs mb-1" style="color: #106188">心得分享</p>
+<p class="text-xs font-light" style="color: #106188;
+opacity: 0.7">记录心情，生成冥想卡片</p>
+</div>
+</div>
+</div>
+</div>
+
+<div class="feature-card-alt float-up" style="animation-delay: 0.5s;">
+<div class="flex items-center gap-2 mb-3">
+<i class="material-icons" style="color: #FF9F43;
+font-size: 24px">music_note</i>
+<h2 class="title-font font-semibold" style="font-size: 17px;
+color: #106188;
+letter-spacing: 0.05em;">灵性音乐创作工坊</h2>
+</div>
+
+<div class="space-y-3">
+<div class="flex items-start gap-2">
+<i class="material-icons flex-shrink-0" style="color: #106188;
+font-size: 18px">auto_awesome</i>
+<div>
+<p class="font-medium text-xs mb-1" style="color: #106188">智能辅助创作</p>
+<p class="text-xs font-light" style="color: #106188;
+opacity: 0.7">AI自动生成旋律骨架</p>
+</div>
+</div>
+
+<div class="flex items-start gap-2">
+<i class="material-icons flex-shrink-0" style="color: #106188;
+font-size: 18px">mic_none</i>
+<div>
+<p class="font-medium text-xs mb-1" style="color: #106188">呼吸成音创作</p>
+<p class="text-xs font-light" style="color: #106188;
+opacity: 0.7">呼吸录音转化为音乐片段</p>
+</div>
+</div>
+
+<div class="flex items-start gap-2">
+<i class="material-icons flex-shrink-0" style="color: #106188;
+font-size: 18px">psychology</i>
+<div>
+<p class="font-medium text-xs mb-1" style="color: #106188">脑波/HRV成曲</p>
+<p class="text-xs font-light" style="color: #106188;
+opacity: 0.7">生理数据转化为身心共振曲</p>
+</div>
+</div>
+
+<div class="flex items-start gap-2">
+<i class="material-icons flex-shrink-0" style="color: #106188;
+font-size: 18px">album</i>
+<div>
+<p class="font-medium text-xs mb-1" style="color: #106188">个人能量留声机</p>
+<p class="text-xs font-light" style="color: #106188;
+opacity: 0.7">生成能量音轨，可刻录黑胶唱片</p>
+</div>
+</div>
+</div>
+</div>
+
+<div class="feature-card float-up" style="animation-delay: 1s;">
+<div class="flex items-center gap-2 mb-3">
+<i class="material-icons" style="color: #FF9F43;
+font-size: 24px">touch_app</i>
+<h2 class="title-font font-semibold" style="font-size: 17px;
+color: #106188;
+letter-spacing: 0.05em;">可触碰的疗愈·实体兑换</h2>
+</div>
+
+<div class="space-y-3">
+<div class="flex items-start gap-2">
+<i class="material-icons flex-shrink-0" style="color: #106188;
+font-size: 18px">nfc</i>
+<div>
+<p class="font-medium text-xs mb-1" style="color: #106188">NFC能量卡片</p>
+<p class="text-xs font-light" style="color: #106188;
+opacity: 0.7">数字徽章兑换，轻触播放疗愈音乐</p>
+</div>
+</div>
+
+<div class="flex items-start gap-2">
+<i class="material-icons flex-shrink-0" style="color: #106188;
+font-size: 18px">shopping_bag</i>
+<div>
+<p class="font-medium text-xs mb-1" style="color: #106188">同频实体文创</p>
+<p class="text-xs font-light" style="color: #106188;
+opacity: 0.7">果壳铃、脉轮吊坠、声音精油香氛</p>
+</div>
+</div>
+
+<div class="flex items-start gap-2">
+<i class="material-icons flex-shrink-0" style="color: #106188;
+font-size: 18px">storefront</i>
+<div>
+<p class="font-medium text-xs mb-1" style="color: #106188">实体商城</p>
+<p class="text-xs font-light" style="color: #106188;
+opacity: 0.7">积分兑换购买，附NFC芯片解锁内容</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<!-- 第7部分：特色亮点 -->
+<div class="section" id="section6" style="background: linear-gradient(135deg, #F7F3E6 0%, #F0F4E8 40%, #E8F4F0 100%);">
+<div class="absolute inset-0 z-0">
+<div class="absolute breathe-glow" style="top: 12%;
+left: 18%;
+width: 260px;
+height: 260px;
+background: radial-gradient(circle, rgba(231, 241, 119, 0.25) 0%, transparent 70%);
+border-radius: 50%;
+filter: blur(40px);"></div>
+<div class="absolute breathe-glow" style="bottom: 20%;
+right: 25%;
+width: 240px;
+height: 240px;
+background: radial-gradient(circle, rgba(16, 97, 136, 0.2) 0%, transparent 70%);
+border-radius: 50%;
+filter: blur(35px);
+animation-delay: 2s;"></div>
+</div>
+
+<div class="content-container">
+<div class="page-title text-center">
+<h1 class="title-font font-light" style="font-size: 24px;
+letter-spacing: 0.08em;
+color: #106188;
+margin-bottom: 6px;">
+特色亮点
+</h1>
+<div class="w-16 h-0.5 rounded-full mx-auto" style="background: linear-gradient(to right, #E7F177, transparent);"></div>
+</div>
+
+<div class="space-y-4">
+<div class="feature-card float-up relative">
+<div class="flex items-center gap-2 mb-2">
+<i class="material-icons" style="color: #E7F177;
+font-size: 28px">blur_on</i>
+<h2 class="title-font font-semibold" style="font-size: 17px;
+color: #106188;
+letter-spacing: 0.05em;">五感共振</h2>
+</div>
+<p class="text-sm font-light leading-relaxed" style="color: #106188;
+opacity: 0.85">从听觉到触觉、视觉，再到社交连接与实体收藏，构建全方位疗愈生态</p>
+</div>
+
+<div class="feature-card-alt float-up" style="animation-delay: 0.5s;">
+<div class="flex items-center gap-2 mb-2">
+<i class="material-icons" style="color: #E7F177;
+font-size: 28px">swap_horiz</i>
+<h2 class="title-font font-semibold" style="font-size: 17px;
+color: #106188;
+letter-spacing: 0.05em;">双向交互</h2>
+</div>
+<p class="text-sm font-light leading-relaxed" style="color: #106188;
+opacity: 0.85">用户通过呼吸、心跳、情绪主动参与创造，实现"形神合一"</p>
+</div>
+
+<div class="feature-card-alt float-up" style="animation-delay: 1s;">
+<div class="flex items-center gap-2 mb-2">
+<i class="material-icons" style="color: #E7F177;
+font-size: 28px">psychology_alt</i>
+<h2 class="title-font font-semibold" style="font-size: 17px;
+color: #106188;
+letter-spacing: 0.05em;">情感算法</h2>
+</div>
+<p class="text-sm font-light leading-relaxed" style="color: #106188;
+opacity: 0.85">结合出生日期、能量指数、实时生理数据与社交行为，推送真正"懂你"的音乐与人</p>
+</div>
+
+<div class="feature-card float-up" style="animation-delay: 1.5s;">
+<div class="flex items-center gap-2 mb-2">
+<i class="material-icons" style="color: #E7F177;
+font-size: 28px">diversity_3</i>
+<h2 class="title-font font-semibold" style="font-size: 17px;
+color: #106188;
+letter-spacing: 0.05em;">社群赋能</h2>
+</div>
+<p class="text-sm font-light leading-relaxed" style="color: #106188;
+opacity: 0.85">将孤独的疗愈变为集体共鸣，通过匹配与共修强化归属感与坚持动力</p>
+</div>
+
+<div class="feature-card float-up" style="animation-delay: 2s;">
+<div class="flex items-center gap-2 mb-3">
+<i class="material-icons" style="color: #E7F177;
+font-size: 28px">layers</i>
+<h2 class="title-font font-semibold" style="font-size: 17px;
+color: #106188;
+letter-spacing: 0.05em;">虚实融合</h2>
+</div>
+
+<p class="text-sm font-light leading-relaxed mb-3" style="color: #106188;
+opacity: 0.85">数字体验可沉淀为可触碰的纪念品，让疗愈频率融入日常生活物件，形成持续的心理暗示</p>
+
+<div class="space-y-2">
+<div class="flex items-center gap-2 p-2 rounded-lg" style="background: rgba(255, 255, 255, 0.2);">
+<i class="material-icons" style="color: #106188;
+font-size: 18px">nfc</i>
+<span class="text-xs font-medium" style="color: #106188">NFC能量卡片</span>
+</div>
+<div class="flex items-center gap-2 p-2 rounded-lg" style="background: rgba(255, 255, 255, 0.2);">
+<i class="material-icons" style="color: #106188;
+font-size: 18px">local_florist</i>
+<span class="text-xs font-medium" style="color: #106188">频率调校果壳铃</span>
+</div>
+<div class="flex items-center gap-2 p-2 rounded-lg" style="background: rgba(255, 255, 255, 0.2);">
+<i class="material-icons" style="color: #106188;
+font-size: 18px">album</i>
+<span class="text-xs font-medium" style="color: #106188">个人能量音轨</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<!-- 第8部分：用户体验流程 -->
+<div class="section" id="section7" style="background: linear-gradient(135deg, #F7F3E6 0%, #F0F4E8 40%, #E8F4F0 100%);">
+<div class="absolute inset-0 z-0">
+<div class="absolute breathe-glow" style="top: 8%;
+left: 12%;
+width: 250px;
+height: 250px;
+background: radial-gradient(circle, rgba(231, 241, 119, 0.25) 0%, transparent 70%);
+border-radius: 50%;
+filter: blur(40px);"></div>
+<div class="absolute breathe-glow" style="bottom: 15%;
+right: 18%;
+width: 230px;
+height: 230px;
+background: radial-gradient(circle, rgba(16, 97, 136, 0.2) 0%, transparent 70%);
+border-radius: 50%;
+filter: blur(35px);
+animation-delay: 2s;"></div>
+</div>
+
+<div class="content-container">
+<div class="page-title text-center">
+<h1 class="title-font font-light" style="font-size: 24px;
+letter-spacing: 0.08em;
+color: #106188;
+margin-bottom: 6px;">
+用户体验流程
+</h1>
+<div class="w-16 h-0.5 rounded-full mx-auto" style="background: linear-gradient(to right, #E7F177, transparent);"></div>
+</div>
+
+<div class="space-y-4">
+<div class="feature-card float-up">
+<div class="flex items-center gap-2 mb-2">
+<div class="w-9 h-9 rounded-full flex items-center justify-center" style="background: rgba(16, 97, 136, 0.1);">
+<i class="material-icons" style="color: #106188;
+font-size: 20px">login</i>
+</div>
+<h3 class="title-font font-semibold text-base" style="color: #106188">注册/登录</h3>
+</div>
+<p class="text-sm font-light" style="color: #106188;
+opacity: 0.75">微信授权登录，填写出生日期，选择疗愈兴趣标签</p>
+</div>
+
+<div class="feature-card-alt float-up" style="animation-delay: 0.5s;">
+<div class="flex items-center gap-2 mb-2">
+<div class="w-9 h-9 rounded-full flex items-center justify-center" style="background: rgba(231, 241, 119, 0.15);">
+<i class="material-icons" style="color: #106188;
+font-size: 20px">home</i>
+</div>
+<h3 class="title-font font-semibold text-base" style="color: #106188">首页</h3>
+</div>
+<div class="flex flex-wrap gap-1">
+<span class="tag" style="background: rgba(255, 255, 255, 0.3);
+color: #106188">今日能量指数</span>
+<span class="tag" style="background: rgba(255, 255, 255, 0.3);
+color: #106188">推荐音乐</span>
+<span class="tag" style="background: rgba(255, 255, 255, 0.3);
+color: #106188">音愈伙伴</span>
+</div>
+</div>
+
+<div class="feature-card float-up" style="animation-delay: 1s;">
+<div class="flex items-center gap-2 mb-2">
+<div class="w-9 h-9 rounded-full flex items-center justify-center" style="background: rgba(16, 97, 136, 0.1);">
+<i class="material-icons" style="color: #106188;
+font-size: 20px">explore</i>
+</div>
+<h3 class="title-font font-semibold text-base" style="color: #106188">发现页</h3>
+</div>
+<div class="flex flex-wrap gap-1">
+<span class="tag" style="background: rgba(255, 255, 255, 0.3);
+color: #106188">场景推荐</span>
+<span class="tag" style="background: rgba(255, 255, 255, 0.3);
+color: #106188">频率疗愈</span>
+<span class="tag" style="background: rgba(255, 255, 255, 0.3);
+color: #106188">社交共振</span>
+</div>
+</div>
+
+<div class="feature-card-alt float-up" style="animation-delay: 1.5s;">
+<div class="flex items-center gap-2 mb-2">
+<div class="w-9 h-9 rounded-full flex items-center justify-center" style="background: rgba(231, 241, 119, 0.15);">
+<i class="material-icons" style="color: #106188;
+font-size: 20px">self_improvement</i>
+</div>
+<h3 class="title-font font-semibold text-base" style="color: #106188">冥想页</h3>
+</div>
+<div class="flex flex-wrap gap-1">
+<span class="tag" style="background: rgba(255, 255, 255, 0.3);
+color: #106188">引导语</span>
+<span class="tag" style="background: rgba(255, 255, 255, 0.3);
+color: #106188">计时器</span>
+<span class="tag" style="background: rgba(255, 255, 255, 0.3);
+color: #106188">双人冥想</span>
+</div>
+</div>
+
+<div class="feature-card float-up" style="animation-delay: 2s;">
+<div class="flex items-center gap-2 mb-2">
+<div class="w-9 h-9 rounded-full flex items-center justify-center" style="background: rgba(16, 97, 136, 0.1);">
+<i class="material-icons" style="color: #106188;
+font-size: 20px">create</i>
+</div>
+<h3 class="title-font font-semibold text-base" style="color: #106188">创作页</h3>
+</div>
+<div class="flex flex-wrap gap-1">
+<span class="tag" style="background: rgba(255, 255, 255, 0.3);
+color: #106188">智能创作</span>
+<span class="tag" style="background: rgba(255, 255, 255, 0.3);
+color: #106188">呼吸成音</span>
+<span class="tag" style="background: rgba(255, 255, 255, 0.3);
+color: #106188">能量留声机</span>
+</div>
+</div>
+
+<div class="feature-card-alt float-up" style="animation-delay: 2.5s;">
+<div class="flex items-center gap-2 mb-2">
+<div class="w-9 h-9 rounded-full flex items-center justify-center" style="background: rgba(231, 241, 119, 0.15);">
+<i class="material-icons" style="color: #106188;
+font-size: 20px">person</i>
+</div>
+<h3 class="title-font font-semibold text-base" style="color: #106188">我的页</h3>
+</div>
+<div class="flex flex-wrap gap-1">
+<span class="tag" style="background: rgba(255, 255, 255, 0.3);
+color: #106188">个人资料</span>
+<span class="tag" style="background: rgba(255, 255, 255, 0.3);
+color: #106188">能量周报</span>
+<span class="tag" style="background: rgba(255, 255, 255, 0.3);
+color: #106188">实体商城</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<!-- 第9部分：总结 -->
+<div class="section full-height-section" id="section8" style="background: linear-gradient(135deg, #F7F3E6 0%, #F0F4E8 40%, #E8F4F0 100%);">
+<div class="absolute inset-0 z-0">
+<div class="absolute breathe-glow" style="top: 5%;
+left: 10%;
+width: 300px;
+height: 300px;
+background: radial-gradient(circle, rgba(255, 159, 67, 0.25) 0%, transparent 70%);
+border-radius: 50%;
+filter: blur(50px);"></div>
+<div class="absolute breathe-glow" style="bottom: 10%;
+right: 12%;
+width: 280px;
+height: 280px;
+background: radial-gradient(circle, rgba(16, 97, 136, 0.2) 0%, transparent 70%);
+border-radius: 50%;
+filter: blur(45px);
+animation-delay: 2s;"></div>
+<div class="absolute breathe-glow" style="top: 40%;
+right: 8%;
+width: 260px;
+height: 260px;
+background: radial-gradient(circle, rgba(255, 159, 67, 0.22) 0%, transparent 70%);
+border-radius: 50%;
+filter: blur(40px);
+animation-delay: 3.5s;"></div>
+<div class="absolute breathe-glow" style="bottom: 30%;
+left: 12%;
+width: 240px;
+height: 240px;
+background: radial-gradient(circle, rgba(16, 97, 136, 0.18) 0%, transparent 70%);
+border-radius: 50%;
+filter: blur(38px);
+animation-delay: 5s;"></div>
+</div>
+
+<div class="content-container">
+<div class="text-center mb-6">
+<h1 class="title-font font-light mb-2" style="font-size: 20px;
+letter-spacing: 0.08em;
+color: #106188">灵波和鸣·共振版</h1>
+<div class="w-16 h-0.5 mx-auto rounded-full" style="background: linear-gradient(to right, transparent, #FF9F43, transparent);"></div>
+</div>
+
+<div class="feature-card mb-6 float-up relative" style="background: rgba(255, 159, 67, 0.12);
+backdrop-filter: blur(25px);
+animation-delay: 0.3s;">
+<p class="text-sm leading-relaxed font-light text-center" style="color: #106188;
+opacity: 0.95">
+不再只是一个音乐工具，而是一个以<span class="font-semibold" style="color: #FFF;
+background: #FF9F43;
+padding: 2px 6px;
+border-radius: 4px;
+display: inline-block">同频共振</span>为灵魂的身心健康生态系统
+</p>
+</div>
+
+<div class="grid grid-cols-2 gap-3 mb-6">
+<div class="feature-card float-up" style="animation-delay: 0.6s;">
+<div class="flex items-center gap-2 mb-2">
+<i class="material-icons" style="color: #FF9F43;
+font-size: 24px">touch_app</i>
+<h3 class="title-font font-semibold text-sm" style="color: #106188">声音被触摸</h3>
+</div>
+<p class="text-xs font-light" style="color: #106188;
+opacity: 0.75">听觉延伸为触觉沉浸</p>
+</div>
+
+<div class="feature-card-alt float-up" style="animation-delay: 0.9s;">
+<div class="flex items-center gap-2 mb-2">
+<i class="material-icons" style="color: #FF9F43;
+font-size: 24px">mic</i>
+<h3 class="title-font font-semibold text-sm" style="color: #106188">呼吸被听见</h3>
+</div>
+<p class="text-xs font-light" style="color: #106188;
+opacity: 0.75">用呼吸演奏疗愈之音</p>
+</div>
+
+<div class="feature-card-alt float-up" style="animation-delay: 1.2s;">
+<div class="flex items-center gap-2 mb-2">
+<i class="material-icons" style="color: #FF9F43;
+font-size: 24px">diversity_3</i>
+<h3 class="title-font font-semibold text-sm" style="color: #106188">疗愈被分享</h3>
+</div>
+<p class="text-xs font-light" style="color: #106188;
+opacity: 0.75">在集体共鸣中找到归属</p>
+</div>
+
+<div class="feature-card float-up" style="animation-delay: 1.5s;">
+<div class="flex items-center gap-2 mb-2">
+<i class="material-icons" style="color: #FF9F43;
+font-size: 24px">nfc</i>
+<h3 class="title-font font-semibold text-sm" style="color: #106188">频率被珍藏</h3>
+</div>
+<p class="text-xs font-light" style="color: #106188;
+opacity: 0.75">数字体验沉淀为实体纪念</p>
+</div>
+</div>
+
+<div class="feature-card-alt float-up" style="animation-delay: 1.8s;">
+<p class="final-text font-light leading-relaxed text-center" style="color: #106188;
+opacity: 0.9;
+line-height: 2;">
+在这里，每个人都能找到与自己<span class="font-semibold" style="color: #FF9F43">同频的旋律</span>、<span class="font-semibold" style="color: #FF9F43">同频的伙伴</span>、<span class="font-semibold" style="color: #FF9F43">同频的生活方式</span>，在喧嚣世界中回归内心的宁静与平衡
+</p>
+</div>
+</div>
+</div>
+
+<!-- 背景音乐 -->
+<audio id="bgMusic" loop>
+  <source src="疗愈音乐.mp3" type="audio/mpeg">
+</audio>
+
+<!-- 音乐控制按钮 - 右下角小图标 -->
+<div class="music-control">
+  <button id="musicBtn" class="music-btn">
+    <span class="music-waves"></span>
+    <span class="material-icons music-icon">music_note</span>
+  </button>
+</div>
+
+<script>
+const audio = document.getElementById('bgMusic');
+const btn = document.getElementById('musicBtn');
+const overlay = document.getElementById('introOverlay');
+const startBtn = document.getElementById('startBtn');
+const navDots = document.getElementById('navDots');
+const sections = document.querySelectorAll('.section');
+const dots = document.querySelectorAll('.nav-dot');
+
+let isPlaying = false;
+
+// 设置音量
+audio.volume = 0.3;
+
+// 尝试自动播放音乐
+function tryAutoPlay() {
+  const playPromise = audio.play();
+  if (playPromise !== undefined) {
+    playPromise.then(() => {
+      isPlaying = true;
+      updateMusicButton();
+      console.log('音乐自动播放成功');
+    }).catch(error => {
+      console.log('音乐自动播放失败，需要用户交互:', error);
+      isPlaying = false;
+      updateMusicButton();
+    });
+  }
+}
+
+// 页面加载完成后尝试自动播放
+window.addEventListener('load', () => {
+  setTimeout(tryAutoPlay, 1000);
+});
+
+// 开始按钮点击 - 隐藏遮罩并尝试播放音乐
+startBtn.addEventListener('click', function() {
+  // 淡出遮罩
+  overlay.style.opacity = '0';
+  overlay.style.transition = 'opacity 0.8s ease';
+  setTimeout(() => {
+    overlay.style.display = 'none';
+    // 显示导航点
+    navDots.style.display = 'flex';
+  }, 800);
+
+  // 播放音乐
+  audio.play().then(() => {
+    isPlaying = true;
+    updateMusicButton();
+  }).catch(err => {
+    console.log('播放失败:', err);
+  });
+});
+
+// 音乐控制按钮
+btn.addEventListener('click', function(e) {
+  e.stopPropagation();
+  if (isPlaying) {
+    audio.pause();
+    isPlaying = false;
+  } else {
+    audio.play();
+    isPlaying = true;
+  }
+  updateMusicButton();
+});
+
+function updateMusicButton() {
+  const icon = btn.querySelector('.music-icon');
+  if (isPlaying) {
+    icon.textContent = 'pause';
+    btn.classList.add('playing');
+  } else {
+    icon.textContent = 'music_note';
+    btn.classList.remove('playing');
+  }
+}
+
+// 导航点点击事件
+dots.forEach((dot, index) => {
+  dot.addEventListener('click', () => {
+    const targetSection = document.getElementById(`section${index}`);
+    if (targetSection) {
+      targetSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  });
+});
+
+// 滚动监听，更新导航点状态
+const observerOptions = {
+  root: null,
+  rootMargin: '-40% 0px -40% 0px',  // 调整触发区域，让页面中间的section被激活
+  threshold: 0
+};
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const sectionId = entry.target.id;
+      const index = parseInt(sectionId.replace('section', ''));
+      updateActiveDot(index);
+    }
+  });
+}, observerOptions);
+
+sections.forEach(section => {
+  observer.observe(section);
+});
+
+function updateActiveDot(activeIndex) {
+  dots.forEach((dot, index) => {
+    if (index === activeIndex) {
+      dot.classList.add('active');
+    } else {
+      dot.classList.remove('active');
+    }
+  });
+}
+
+// 禁用页面内容区域的滚动吸附（仅section级别）
+document.addEventListener('DOMContentLoaded', function() {
+  const contentContainers = document.querySelectorAll('.content-container');
+  contentContainers.forEach(container => {
+    container.style.scrollSnapAlign = 'none';
+  });
+});
+
+// 添加触摸滑动检测，确保第一页可以滑动
+let touchStartY = 0;
+let touchEndY = 0;
+let firstSection = document.getElementById('section0');
+
+document.addEventListener('touchstart', function(e) {
+  touchStartY = e.changedTouches[0].screenY;
+}, false);
+
+document.addEventListener('touchend', function(e) {
+  touchEndY = e.changedTouches[0].screenY;
+  handleSwipe();
+}, false);
+
+function handleSwipe() {
+  const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+  
+  // 如果在第一页且向上滑动
+  if (scrollTop < 100 && touchStartY > touchEndY) {
+    // 触发滚动到第二页
+    const secondSection = document.getElementById('section1');
+    if (secondSection) {
+      secondSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  }
+}
+</script>
+
+</body>
+</html>
